@@ -42,9 +42,14 @@ l'éditeur : elle utilise le compte de votre fournisseur.</p>
 
 <h2>🇫🇷 Le bon fichier</h2>
 
+<p><strong>Ce n'est pas deux applications.</strong> C'est la même application,
+compilée deux fois : une fois pour les processeurs 64 bits, une fois pour les
+processeurs 32 bits. <strong>N'installez qu'un seul fichier</strong> — celui
+qui correspond à votre télévision.</p>
+
 <div class="table-scroll">
 <table>
-  <caption>Deux APK, un par architecture.</caption>
+  <caption>La même application, deux architectures.</caption>
   <thead>
     <tr><th>Fichier</th><th>Pour qui</th><th>Taille</th></tr>
   </thead>
@@ -178,6 +183,11 @@ with the publisher: it uses the account of your own provider.</p>
 <code>adb shell getprop ro.product.cpu.abi</code> — <code>arm64-v8a</code> or
 <code>armeabi-v7a</code>. Checksums are published alongside the files:
 <a href="telechargement/SHA256SUMS">SHA256SUMS</a>.</p>
+
+<p lang="en"><strong>These are not two applications.</strong> It is the same
+application, compiled twice: once for 64-bit processors, once for 32-bit
+processors. <strong>Install only one file</strong> — the one that matches your
+television.</p>
 
 <p lang="en">Install it with <code>adb install -r</code> over USB, with
 <code>adb connect</code> over the network, or from a USB stick — the last one
