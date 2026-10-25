@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Télécharger — Infinite Media Player</title>
+<meta name="description" content="Télécharger l'application Infinite Media Player pour Android TV et Fire TV : le fichier APK signé, et la façon de l'installer.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="site-name"><a href="index.html">Infinite Media Player</a></p>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="confidentialite.html">Confidentialité</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="conditions.html">Conditions</a></li>
+        <li><a href="source.html">Source</a></li>
+        <li><a href="licences.html">Licences</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="telecharger.html" aria-current="page">Télécharger</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<h1>Télécharger Infinite Media Player</h1>
+
+<p>Voici le fichier de l'application pour <strong>Android TV</strong> et
+<strong>Fire TV</strong>. Il
+est signé avec la clé de publication — la même que celle qui ira dans le
+Google Play et l'Amazon Appstore : l'installer ici, puis le mettre à jour
+depuis le magasin, ne posera aucun problème.</p>
+
+<p>L'application est <strong>gratuite</strong> et ne demande aucun compte de
+l'éditeur : elle utilise le compte de votre fournisseur.</p>
+
+<h2>🇫🇷 Le bon fichier</h2>
+
+<div class="table-scroll">
+<table>
+  <caption>Deux APK, un par architecture.</caption>
+  <thead>
+    <tr><th>Fichier</th><th>Pour qui</th><th>Taille</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="telechargement/infinite-android-tv-arm64.apk"><strong>infinite-android-tv-arm64.apk</strong></a></td>
+      <td>Android TV, Fire Stick <strong>64 bits</strong> — la plupart des modèles</td>
+      <td>32,6 Mo</td>
+    </tr>
+    <tr>
+      <td><a href="telechargement/infinite-android-tv-armv7.apk"><strong>infinite-android-tv-armv7.apk</strong></a></td>
+      <td>Fire Stick <strong>32 bits</strong> — les modèles d'entrée de gamme</td>
+      <td>29,4 Mo</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Pour savoir lequel choisir, sur la télé :</p>
+
+<pre><code>adb shell getprop ro.product.cpu.abi</code></pre>
+
+`arm64-v8a` → le premier ; `armeabi-v7a` → le second.
+
+<p>Les sommes de contrôle sont publiées avec les fichiers :
+<a href="telechargement/SHA256SUMS">SHA256SUMS</a>.</p>
+
+<h2>🇫🇷 L'installer</h2>
+
+<p><strong>Par câble USB</strong> — sur la télé, *Paramètres → My Fire TV →
+Developer options* → <em>USB debugging</em> à <em>On</em> (Fire OS), ou
+*Paramètres → À propos* puis sept fois sur le numéro de version (Android TV).
+Branchez, acceptez l'empreinte sur l'écran, puis :</p>
+
+<pre><code>adb install -r infinite-android-tv-arm64.apk</code></pre>
+
+<p><strong>Sans câble</strong> — sur Fire OS, avec <em>ADB debugging</em>
+activé :</p>
+
+<pre><code>adb connect 192.168.1.42:5555      # l'adresse de la télé
+adb install -r infinite-android-tv-arm64.apk</code></pre>
+
+<p><strong>Sans adb</strong> — copiez le `.apk` sur une clé USB et ouvrez-le
+avec le gestionnaire de fichiers de la télé. Android refuse par défaut
+d'installer une application venue de l'extérieur : il faut *Paramètres →
+Sécurité → Sources inconnues*, et, sur Fire OS et Android TV, cette
+autorisation se donne <strong>par application</strong> (<em>Unknown
+sources</em>, dans les détails de l'application qui ouvre le fichier).</p>
+
+<p>Une fois installée, l'application <strong>apparaît dans la liste des
+applications</strong> de la télévision, avec sa bannière. Elle se pilote à la
+manette.</p>
+
+<h2>🇫🇷 Et sur les autres plateformes ?</h2>
+
+<ul>
+  <li><strong>Téléphone et tablette Android</strong> — le Google Play.</li>
+  <li><strong>Fire TV</strong> — l'Amazon Appstore.</li>
+  <li><strong>iPhone et iPad</strong> — l'App Store.</li>
+  <li><strong>Windows</strong> — le Microsoft Store.</li>
+  <li><strong>macOS</strong> — en dehors de l'App Store : le Mac App Store
+  exige le bac à sable, que l'application ne peut pas respecter. Le fichier
+  est signé et notarisé.</li>
+</ul>
+
+<hr>
+
+<h2 lang="en">🇬🇧 English version</h2>
+
+<p lang="en">The Android TV and Fire TV build of Infinite Media Player is
+available here as a signed APK. It is signed with the release key — the very
+same key the Google Play and Amazon Appstore builds use — so installing it
+now and updating it from a store later causes no problem.</p>
+
+<p lang="en">The application is <strong>free</strong> and asks for no account
+with the publisher: it uses the account of your own provider.</p>
+
+<p lang="en">Two files, one per architecture:
+<a href="telechargement/infinite-android-tv-arm64.apk"><strong>infinite-android-tv-arm64.apk</strong></a>
+(32.6 MB — most Android TV devices and Fire TV sticks) and
+<a href="telechargement/infinite-android-tv-armv7.apk"><strong>infinite-android-tv-armv7.apk</strong></a>
+(29.4 MB — 32-bit Fire TV sticks). To know which one your device needs:
+<code>adb shell getprop ro.product.cpu.abi</code> — <code>arm64-v8a</code> or
+<code>armeabi-v7a</code>. Checksums are published alongside the files:
+<a href="telechargement/SHA256SUMS">SHA256SUMS</a>.</p>
+
+<p lang="en">Install it with <code>adb install -r</code> over USB, with
+<code>adb connect</code> over the network, or from a USB stick — the last one
+requires allowing unknown sources for the file manager on the device.</p>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Éditeur : ya5inq</p>
+    <p>Contact : yasin.avci@snowpact.com</p>
+    <p>© 2026 Infinite Media Player — <a href="mentions-legales.html">mentions légales</a> · <a href="confidentialite.html">confidentialité</a> · <a href="conditions.html">conditions</a> · <a href="source.html">source</a> · <a href="licences.html">licences</a> · <a href="support.html">support</a> · <a href="telecharger.html">téléchargement</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
