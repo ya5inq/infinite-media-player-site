@@ -160,8 +160,8 @@ tous.</p>
     </tr>
     <tr>
       <td>Windows</td>
-      <td>commit de dev <code>0f78584</code> (21/10/2024)</td>
-      <td>commit <code>ea3d24bbe3c58b171e55fe2151fc7ffaca3ab3d2</code></td>
+      <td>commit <code>652a1dd90711839acdccc08004056d25514ef2d8</code></td>
+      <td>6.0 (<code>n6.0</code>)</td>
       <td><a href="source/infinite-source-windows.tar.gz"><code>infinite-source-windows.tar.gz</code></a></td>
     </tr>
   </tbody>
@@ -200,7 +200,9 @@ exacte et la somme SHA-256 de chaque archive sont dans le manifeste :</p>
   source ne correspond pas au binaire ;</li>
   <li>la <strong>ligne de compilation exacte</strong>, écrite dans un fichier
   texte à la racine de l'archive — c'est une exigence explicite de FFmpeg ;
-  elle est extraite des scripts de compilation, pas reconstituée ;</li>
+  elle est extraite des scripts de compilation, ou, pour Windows, de la
+  bibliothèque livrée elle-même, qui enregistre sa propre configuration ;
+  elle n'est jamais reconstituée ;</li>
   <li>les <strong>textes de licence</strong> : LGPL 2.1 de mpv, LGPL v3 et
   GPL v3 de FFmpeg, le <code>LICENSE.md</code> de FFmpeg, et la licence de la
   recette de compilation ;</li>

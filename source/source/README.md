@@ -33,7 +33,7 @@ par famille de binaires réellement distribués :
 |---|---|---|---|---|
 | `darwin` | macOS et iOS | 0.36.0 (`v0.36.0`) | 6.0 (`n6.0`) | `media-kit/libmpv-darwin-build` @ `v0.6.0` |
 | `android` | Android (arm64-v8a, armeabi-v7a, x86, x86_64) | commit `78d43740f52db817d98bcf24fb30a76ab6fa13ff` | commit `ea3d24bbe3c58b171e55fe2151fc7ffaca3ab3d2` | `media-kit/libmpv-android-video-build` @ `v1.1.7` |
-| `windows` | Windows (x86_64) | commit de dev `0f78584` (21/10/2024) | commit `ea3d24bbe3c58b171e55fe2151fc7ffaca3ab3d2` | `media-kit/libmpv-win32-video-cmake` @ `20241021` |
+| `windows` | Windows (x86_64) | commit `652a1dd90711839acdccc08004056d25514ef2d8` | 6.0 (`n6.0`, commit `ea3d24bbe3c58b171e55fe2151fc7ffaca3ab3d2`) | `media-kit/libmpv-win32-video-build` @ `2023-09-24` |
 
 L'archive `darwin` couvre **macOS et iOS** : le même dépôt de compilation
 produit les deux xcframeworks, avec le même source de mpv et de FFmpeg. Les
@@ -280,7 +280,7 @@ en contient **trois** : `darwin`, `android`, `windows`, dans cet ordre.
 | Champ | Type | Rôle |
 |---|---|---|
 | `url` | chaîne | L'URL du dépôt media-kit. |
-| `release` | chaîne | La release épinglée (`v0.6.0`, `v1.1.7`, `20241021`). |
+| `release` | chaîne | La release épinglée (`v0.6.0`, `v1.1.7`, `2023-09-24`). |
 | `tarball` | chaîne | L'URL de l'archive de cette release. |
 | `sha256` | chaîne | La somme SHA-256 du dépôt téléchargé. |
 | `fichier_de_verrouillage` | chaîne | Le fichier du dépôt qui épingle les versions (`downloads.lock`, `buildscripts/include/depinfo.sh`, `packages/ffmpeg.cmake`). |
