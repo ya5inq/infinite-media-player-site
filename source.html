@@ -90,8 +90,12 @@ source qui rend ce droit effectif.</p>
 
 <p>mpv est compilé avec <code>-Dgpl=false</code>, et FFmpeg sans
 <code>--enable-gpl</code> ni <code>--enable-nonfree</code> : il n'y a
-<strong>aucun code GPL</strong> dans ce qui est livré. La mention ci-dessous
-est obligatoire, et FFmpeg l'exige mot pour mot :</p>
+<strong>aucun code GPL</strong> dans ce qui est livré. Sur Windows, ce n'est
+pas la recette qui l'affirme : c'est la bibliothèque livrée elle-même, dont
+les six bibliothèques FFmpeg annoncent <em>« LGPL version 3 or later »</em>,
+et dont la configuration de compilation est recopiée mot pour mot dans
+l'archive. La mention ci-dessous est obligatoire, et FFmpeg l'exige mot pour
+mot :</p>
 
 <blockquote>
 <p><strong lang="en">This software uses libraries from the FFmpeg project under
@@ -276,7 +280,10 @@ elle-même.</p>
   livrées sont en LGPL, pas en GPL.</li>
   <li>La variante <code>encodersgpl</code> de media_kit, qui contient des
   composants GPL (dont libx264), <strong>n'est pas</strong> celle qui est
-  livrée. Elle ne fait donc partie d'aucune archive.</li>
+  livrée : aucun code GPL n'entre dans le binaire. Elle figure
+  néanmoins dans les archives, au seul titre de la <strong>recette de
+  compilation complète</strong> — c'est le dépôt de construction entier qui
+  est livré, avec ses correctifs, pas la variante employée.</li>
 </ul>
 
 <p>Pour le reste — les licences, leurs versions exactes, et le texte des
