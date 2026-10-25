@@ -1,7 +1,7 @@
 {
   "projet": "Infinite Media Player",
   "objet": "Archives de source exigées par la LGPL 2.1 §6 et la LGPL v3 §4",
-  "genere_le": "2026-10-25T06:29:45Z",
+  "genere_le": "2026-10-25T07:20:11Z",
   "generateur": "apps/flutter/tool/prepare-source-offer.sh",
   "licences": {
     "libmpv": "LGPL 2.1 or later",
@@ -12,8 +12,8 @@
       "plateforme": "darwin",
       "libelle": "macOS et iOS",
       "nom": "infinite-source-darwin.tar.gz",
-      "taille_octets": 19019631,
-      "sha256": "42e533151adcbacf479d0e0295ea1cf2e13ade9a398251bb5f3c62841adaae9d",
+      "taille_octets": 19019782,
+      "sha256": "2ae0e27de1b44deaa1f7e6f5de9bebf590338c6b4af82630005d36e9e3913a47",
       "date": "2026-10-25",
       "depot_de_compilation": {
         "url": "https://github.com/media-kit/libmpv-darwin-build",
@@ -43,14 +43,15 @@
       ],
       "ligne_de_compilation": "mpv : meson setup build --cross-file cross-files/macos-<arch>.ini --prefix=<sortie> -Dlibmpv=true -Dgpl=false -Dbuild-date=true -Diconv=enabled -Duchardet=enabled -Dzlib=enabled -Dgl=enabled -Dplain-gl=enabled -Dcoreaudio=enabled -Dcocoa=enabled -Dgl-cocoa=enabled -Dvideotoolbox-gl=enabled ; FFmpeg : meson setup build --cross-file cross-files/macos-<arch>.ini --prefix=<sortie> -Dvariant=video -Dflavor=default (options exactes : scripts/ffmpeg/meson.build)",
       "commande_de_reproduction": "git clone --branch v0.6.0 --depth 1 https://github.com/media-kit/libmpv-darwin-build.git cd libmpv-darwin-build # macOS : xcframework universel (slice arm64 et slice amd64) make VERSION=v0.6.0 build/output/libmpv-xcframeworks_v0.6.0_macos-universal-video-default.tar.gz # iOS : xcframework universel (slice arm64 et slice simulateur) make VERSION=v0.6.0 build/output/libmpv-xcframeworks_v0.6.0_ios-universal-video-default.tar.gz",
+      "licence": "LGPL 2.1 (mpv) et LGPL v3 (FFmpeg) — vérifié dans la recette : mpv est compilé avec -Dgpl=false, et FFmpeg sans --enable-gpl.",
       "nom_original": "infinite-source-darwin-2026-10-25.tar.gz"
     },
     {
       "plateforme": "android",
       "libelle": "Android (arm64-v8a, armeabi-v7a, x86, x86_64)",
       "nom": "infinite-source-android.tar.gz",
-      "taille_octets": 19038591,
-      "sha256": "68f55e6972b111478291e6caf4ff37ab8209e13bcdef88e8cd6e0b00a78ccd29",
+      "taille_octets": 19038645,
+      "sha256": "7a3e16ed925dff98759a2c09f521dad01bf517582cc7123f82be1bb365dd2379",
       "date": "2026-10-25",
       "depot_de_compilation": {
         "url": "https://github.com/media-kit/libmpv-android-video-build",
@@ -80,43 +81,45 @@
       ],
       "ligne_de_compilation": "mpv : meson setup _build$ndk_suffix --cross-file <prefix>/crossfile.txt --prefer-static --default-library shared -Dgpl=false -Dlibmpv=true -Dlua=disabled -Dcplayer=false -Diconv=disabled -Dvulkan=disabled -Dlibplacebo=disabled -Dmanpage-build=disabled ; FFmpeg : ../configure --target-os=android --enable-cross-compile --disable-gpl --disable-nonfree --enable-version3 --enable-static --disable-shared (options exactes : buildscripts/flavors/default.sh)",
       "commande_de_reproduction": "git clone --branch v1.1.7 --depth 1 https://github.com/media-kit/libmpv-android-video-build.git cd libmpv-android-video-build/buildscripts ./download.sh # récupère mpv (commit 78d43740f52db817d98bcf24fb30a76ab6fa13ff) et FFmpeg (n6.0) ./patch.sh # applique les correctifs media-kit ./build.sh # compile libmpv pour les quatre ABI",
+      "licence": "LGPL 2.1 (mpv) et LGPL v3 (FFmpeg) — vérifié dans la recette : buildscripts/flavors/default.sh impose --disable-gpl --disable-nonfree --enable-version3.",
       "nom_original": "infinite-source-android-2026-10-25.tar.gz"
     },
     {
       "plateforme": "windows",
       "libelle": "Windows (x86_64)",
       "nom": "infinite-source-windows.tar.gz",
-      "taille_octets": 20387084,
-      "sha256": "666b74c3e99c7aafaf312d5a790d12976bb1973af383d1eb376e785e2b3cdf8e",
+      "taille_octets": 19029035,
+      "sha256": "7fd7c7c850ed76653587d53f0b3f752656292c516bfb0939b685c99879ad002e",
       "date": "2026-10-25",
       "depot_de_compilation": {
-        "url": "https://github.com/media-kit/libmpv-win32-video-cmake",
-        "release": "20241021",
-        "tarball": "https://github.com/media-kit/libmpv-win32-video-cmake/archive/ed01efd0a0621d8e12123dd24df60147ac5de2a3.tar.gz",
-        "commit": "ed01efd0a0621d8e12123dd24df60147ac5de2a3",
-        "sha256": "420c9689455e3d0d86f8f21902dc46d330e45fd8beb4dc75e351f1960fe48093",
-        "fichier_de_verrouillage": "packages/ffmpeg.cmake"
+        "url": "https://github.com/media-kit/libmpv-win32-video-build",
+        "release": "2023-09-24",
+        "tarball": "https://github.com/media-kit/libmpv-win32-video-build/archive/f5a6f879c9b8bef6a73e52c8c0f35e51636c96e5.tar.gz",
+        "commit": "f5a6f879c9b8bef6a73e52c8c0f35e51636c96e5",
+        "sha256": "5e6f7eee77922273b862ffecfe71a72fc3d8f2e3ce6037bc6ac529b2aac7b0ef",
+        "fichier_de_verrouillage": "aucun — la version est lue dans le binaire livré"
       },
       "sources": [
         {
           "composant": "mpv",
-          "version": "commit 0f7858451817",
-          "version_annoncee_par_la_source": "0.39.0-UNKNOWN",
-          "commit": "0f7858451817c5fd5ebdb74a807a7c997662c390",
-          "url": "https://github.com/mpv-player/mpv/archive/0f7858451817c5fd5ebdb74a807a7c997662c390.tar.gz",
-          "sha256": "ddaf6302020b57e3363108b1518cd5d0103a9034db97c73e77ccf03e362a5565"
+          "version": "commit 652a1dd90711",
+          "version_annoncee_par_la_source": "0.36.0-UNKNOWN",
+          "commit": "652a1dd90711839acdccc08004056d25514ef2d8",
+          "url": "https://github.com/mpv-player/mpv/archive/652a1dd90711839acdccc08004056d25514ef2d8.tar.gz",
+          "sha256": "926dce4dfb918cbbac603ad5d453d453d0036d1e00e77baaf5d76ca99ce7a419"
         },
         {
           "composant": "ffmpeg",
-          "version": "commit 8d940a07d190",
-          "version_annoncee_par_la_source": "7.1.git",
-          "commit": "8d940a07d19023a98689f353e4425a14688547e9",
-          "url": "https://github.com/FFmpeg/FFmpeg/archive/8d940a07d19023a98689f353e4425a14688547e9.tar.gz",
-          "sha256": "c1aaa1c1a278ebc4d58b86405524ee111096609288a9d52e90b37909b8fee11f"
+          "version": "6.0",
+          "version_annoncee_par_la_source": "6.0",
+          "commit": "ea3d24bbe3c58b171e55fe2151fc7ffaca3ab3d2",
+          "url": "https://github.com/FFmpeg/FFmpeg/archive/ea3d24bbe3c58b171e55fe2151fc7ffaca3ab3d2.tar.gz",
+          "sha256": "aacce24d5bb6c67fbf1e3343bc15a6977ad700cdb4f43c8551f6544fa54ab7ec"
         }
       ],
-      "ligne_de_compilation": "mpv : meson setup <BINARY_DIR> <SOURCE_DIR> --prefix=<mingw> --libdir=<mingw>/lib --cross-file=<MESON_CROSS> --default-library=shared --prefer-static -Dgpl=false -Dlibmpv=true (options exactes : packages/mpv.cmake) ; FFmpeg : <SOURCE_DIR>/configure --cross-prefix=x86_64-w64-mingw32- --arch=x86_64 --target-os=mingw32 --disable-gpl --disable-nonfree --enable-version3 --enable-static --disable-shared (options exactes : packages/ffmpeg.cmake)",
-      "commande_de_reproduction": "git clone --branch 20241021 --depth 1 https://github.com/media-kit/libmpv-win32-video-cmake.git cd libmpv-win32-video-cmake cmake -DTARGET_ARCH=x86_64-w64-mingw32 -DCOMPILER_TOOLCHAIN=clang \\ -DCMAKE_INSTALL_PREFIX=$PWD/clang_root \\ -DMINGW_INSTALL_PREFIX=$PWD/build_x86_64/x86_64-w64-mingw32 \\ -DSINGLE_SOURCE_LOCATION=$PWD/src_packages -DRUSTUP_LOCATION=$PWD/clang_root/install_rustup \\ -DENABLE_CCACHE=ON -DCLANG_PACKAGES_LTO=ON -G Ninja --fresh -B build_x86_64 -S $PWD ninja -C build_x86_64 mpv ninja -C build_x86_64 mpv-packaging",
+      "ligne_de_compilation": "mpv : meson setup <BINARY_DIR> <SOURCE_DIR> -Dgpl=false -Dlibmpv=true -Ddefault_library=shared -Dprefer_static=True --buildtype=release (configuration recopiée du binaire livré) ; FFmpeg : <SOURCE_DIR>/configure --disable-gpl --disable-nonfree --enable-version3 --enable-static --disable-shared --disable-muxers --disable-decoders --disable-encoders --disable-demuxers --disable-parsers --disable-protocols --disable-filters --disable-programs --disable-postproc (configuration recopiée du binaire livré ; la ligne complète est dans LIGNE-DE-COMPILATION.txt)",
+      "commande_de_reproduction": "git clone --branch 2023-09-24 --depth 1 https://github.com/media-kit/libmpv-win32-video-build.git cd libmpv-win32-video-build # Le système de compilation est « mpv-winbuild-cmake » : CMake, Ninja, et # une toolchain MinGW. Le binaire publié a été compilé dans un répertoire # « build64 » ; la configuration effective est dans LIGNE-DE-COMPILATION.txt. cmake -DTARGET_ARCH=x86_64-w64-mingw32 -DCOMPILER_TOOLCHAIN=clang \\ -DCMAKE_INSTALL_PREFIX=$PWD/clang_root \\ -DMINGW_INSTALL_PREFIX=$PWD/build_x86_64/x86_64-w64-mingw32 \\ -DSINGLE_SOURCE_LOCATION=$PWD/src_packages -DRUSTUP_LOCATION=$PWD/clang_root/install_rustup \\ -DENABLE_CCACHE=ON -DCLANG_PACKAGES_LTO=ON -G Ninja --fresh -B build_x86_64 -S $PWD ninja -C build_x86_64 mpv ninja -C build_x86_64 mpv-packaging",
+      "licence": "LGPL 2.1 (mpv) et LGPL v3 (FFmpeg) — vérifié dans le binaire livré lui-même : « libavcodec license: LGPL version 3 or later », et une configuration FFmpeg en « --disable-gpl --disable-nonfree --enable-version3 ».",
       "nom_original": "infinite-source-windows-2026-10-25.tar.gz"
     }
   ]
