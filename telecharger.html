@@ -72,7 +72,55 @@ l'éditeur : elle utilise le compte de votre fournisseur.</p>
 <p>Les sommes de contrôle sont publiées avec les fichiers :
 <a href="telechargement/SHA256SUMS">SHA256SUMS</a>.</p>
 
+<h2>🇫🇷 Le lien court</h2>
+
+<p>Sur une télévision, une adresse se tape à la télécommande. Voici des liens
+beaucoup plus courts — <strong>le même fichier</strong>, aux octets près :</p>
+
+<div class="table-scroll">
+<table>
+  <caption>Deux liens courts, à taper dans l'application « Downloader ».</caption>
+  <thead>
+    <tr><th>Adresse</th><th>Pour qui</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://ya5inq.github.io/dl/arm64.apk"><code>ya5inq.github.io/dl/arm64.apk</code></a></td>
+      <td>64 bits (<code>arm64-v8a</code>)</td>
+    </tr>
+    <tr>
+      <td><a href="https://ya5inq.github.io/dl/armv7.apk"><code>ya5inq.github.io/dl/armv7.apk</code></a></td>
+      <td>32 bits (<code>armeabi-v7a</code>)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Sans le préfixe <code>https://</code>, Downloader les accepte aussi.</p>
+
 <h2>🇫🇷 L'installer</h2>
+
+<h3>Sans ordinateur : l'application « Downloader »</h3>
+
+<p>Fire TV et Fire Stick n'ont pas de magasin d'applications hors Amazon :
+l'application <strong>Downloader</strong> (par AFTVnews, sur l'Amazon
+Appstore) est celle qui sert à installer un fichier téléchargé.</p>
+
+<ol>
+  <li>Sur la télé : *Rechercher* → <strong>Downloader</strong> → *Télécharger*.
+  Ne l'ouvrez pas encore.</li>
+  <li>*Paramètres → Applications → Gérer les applications installées →
+  Downloader → <strong>Installer des applications inconnues</strong> → Autoriser.
+  (Fire OS 8 : la question est posée au moment d'installer ; sur les autres
+  versions, ce réglage doit être donné à l'avance.)</li>
+  <li>Ouvrez Downloader → <strong>Enter URL</strong> → tapez
+  <code>ya5inq.github.io/dl/arm64.apk</code> → <strong>Download</strong>.</li>
+  <li>Le fichier atterrit dans <em>Downloader / Downloads</em>. Ouvrez-le :
+  Android demande l'autorisation d'installer, puis l'installation démarre.</li>
+</ol>
+
+<p>La même chose, sans installer Downloader : l'application <strong>Files</strong>
+de la télé peut aussi installer un APK téléchargé par le navigateur.</p>
 
 <p><strong>Par câble USB</strong> — sur la télé, *Paramètres → My Fire TV →
 Developer options* → <em>USB debugging</em> à <em>On</em> (Fire OS), ou
@@ -134,6 +182,12 @@ with the publisher: it uses the account of your own provider.</p>
 <p lang="en">Install it with <code>adb install -r</code> over USB, with
 <code>adb connect</code> over the network, or from a USB stick — the last one
 requires allowing unknown sources for the file manager on the device.</p>
+
+<p lang="en">Short links, for typing on a TV remote — the very same files:
+<a href="https://ya5inq.github.io/dl/arm64.apk"><code>ya5inq.github.io/dl/arm64.apk</code></a>
+and <a href="https://ya5inq.github.io/dl/armv7.apk"><code>ya5inq.github.io/dl/armv7.apk</code></a>.
+On a Fire TV, install the <strong>Downloader</strong> app from the Amazon
+Appstore, then <em>Enter URL</em>.</p>
 
 </main>
 
