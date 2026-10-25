@@ -1,0 +1,360 @@
+/* ── Le site public d'Infinite Media Player ──────────────────────────────────
+ *
+ * Une feuille de style, sobre, en français, et **sans aucune dépendance
+ * extérieure** : pas de police distante, pas d'image distante, pas de script.
+ * Le site doit se charger entièrement et fonctionner hors ligne.
+ *
+ * Palette claire, contrastée, lisible. Aucune police n'est téléchargée : on
+ * utilise les polices du système, ce qui évite une requête réseau et une
+ * dépendance à un tiers.
+ */
+
+:root {
+  --texte: #1b1b1b;
+  --texte-doux: #55555a;
+  --fond: #ffffff;
+  --fond-alt: #f5f5f2;
+  --bordure: #d8d8d2;
+  --lien: #12508c;
+  --lien-survol: #0b3358;
+  --accent-marker: #7a3c0a;
+  --fond-marker: #fdf3e3;
+  --bordure-marker: #d8a55c;
+  --mesure: 46rem;
+}
+
+html {
+  /* Pas de thème sombre forcé : le site est clair, et le reste clair. */
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── La mise en page ──────────────────────────────────────────────────────── */
+
+.wrap {
+  max-width: var(--mesure);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+main.wrap {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+/* ── L'en-tête et la navigation ───────────────────────────────────────────── */
+
+.site-header {
+  border-bottom: 1px solid var(--bordure);
+  background: var(--fond-alt);
+  padding: 1.1rem 0 0.9rem;
+}
+
+.site-header .site-name {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.site-header .site-name a {
+  color: var(--texte);
+  text-decoration: none;
+}
+
+.site-header .site-name a:hover {
+  text-decoration: underline;
+}
+
+.site-header nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  margin: 0;
+  padding: 0;
+  font-size: 0.92rem;
+}
+
+.site-header nav a {
+  color: var(--lien);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.site-header nav a:hover {
+  color: var(--lien-survol);
+  border-bottom-color: currentColor;
+}
+
+.site-header nav a[aria-current="page"] {
+  color: var(--texte);
+  font-weight: 600;
+  border-bottom-color: var(--texte);
+}
+
+/* ── Le pied de page ──────────────────────────────────────────────────────── */
+
+.site-footer {
+  border-top: 1px solid var(--bordure);
+  background: var(--fond-alt);
+  padding: 1.4rem 0 2rem;
+  font-size: 0.88rem;
+  color: var(--texte-doux);
+}
+
+.site-footer p {
+  margin: 0.3rem 0;
+}
+
+/* ── Les titres et le corps du texte ──────────────────────────────────────── */
+
+h1 {
+  font-size: 1.75rem;
+  line-height: 1.25;
+  margin: 0 0 1.2rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin: 2.4rem 0 0.8rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--bordure);
+}
+
+h3 {
+  font-size: 1.02rem;
+  margin: 1.8rem 0 0.5rem;
+}
+
+h4 {
+  font-size: 0.95rem;
+  margin: 1.4rem 0 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--texte-doux);
+}
+
+p {
+  margin: 0.85rem 0;
+}
+
+ul,
+ol {
+  margin: 0.85rem 0;
+  padding-left: 1.4rem;
+}
+
+li {
+  margin: 0.3rem 0;
+}
+
+a {
+  color: var(--lien);
+}
+
+a:hover {
+  color: var(--lien-survol);
+}
+
+strong {
+  font-weight: 700;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--bordure);
+  margin: 2.2rem 0;
+}
+
+abbr {
+  text-decoration: none;
+}
+
+/* ── Les blocs de code ────────────────────────────────────────────────────── */
+
+code,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88em;
+}
+
+code {
+  background: var(--fond-alt);
+  border: 1px solid var(--bordure);
+  border-radius: 3px;
+  padding: 0.05em 0.3em;
+}
+
+pre {
+  background: var(--fond-alt);
+  border: 1px solid var(--bordure);
+  border-radius: 4px;
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  line-height: 1.45;
+}
+
+pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: 0.85rem;
+}
+
+/* ── Les tableaux ─────────────────────────────────────────────────────────── */
+
+.table-scroll {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.92rem;
+}
+
+caption {
+  caption-side: bottom;
+  font-size: 0.85rem;
+  color: var(--texte-doux);
+  padding-top: 0.5rem;
+  text-align: left;
+}
+
+th,
+td {
+  border: 1px solid var(--bordure);
+  padding: 0.5rem 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+thead th {
+  background: var(--fond-alt);
+  font-weight: 700;
+}
+
+tbody tr:nth-child(even) {
+  background: #fbfbf9;
+}
+
+/* ── Les encadrés ─────────────────────────────────────────────────────────── */
+
+.note {
+  background: var(--fond-alt);
+  border: 1px solid var(--bordure);
+  border-left: 3px solid var(--bordure);
+  border-radius: 4px;
+  padding: 0.85rem 1.1rem;
+  margin: 1.4rem 0;
+  font-size: 0.94rem;
+}
+
+.note > :first-child {
+  margin-top: 0;
+}
+
+.note > :last-child {
+  margin-bottom: 0;
+}
+
+.note-title {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+/* ── Les marqueurs « À COMPLÉTER » ───────────────────────────────────────────
+ *
+ * Une information que seul l'éditeur possède ne doit jamais être devinée.
+ * Elle est écrite entre crochets, et affichée comme telle : impossible de
+ * la manquer au moment de publier.
+ */
+
+.a-completer {
+  background: var(--fond-marker);
+  border: 1px solid var(--bordure-marker);
+  border-radius: 3px;
+  color: var(--accent-marker);
+  padding: 0.05em 0.35em;
+  font-weight: 600;
+  white-space: normal;
+}
+
+/* ── Les listes de liens (index, licences) ────────────────────────────────── */
+
+.documents {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0;
+}
+
+.documents > li {
+  border: 1px solid var(--bordure);
+  border-radius: 5px;
+  padding: 0.9rem 1.1rem;
+  margin: 0.8rem 0;
+}
+
+.documents > li h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.02rem;
+}
+
+.documents > li p {
+  margin: 0.3rem 0 0;
+  font-size: 0.93rem;
+  color: var(--texte-doux);
+}
+
+.documents > li p + p {
+  margin-top: 0.4rem;
+}
+
+/* ── L'impression ─────────────────────────────────────────────────────────── */
+
+@media print {
+  body {
+    font-size: 11pt;
+  }
+
+  .site-header nav,
+  .site-header .site-name,
+  .site-footer {
+    display: none;
+  }
+
+  a {
+    color: var(--texte);
+    text-decoration: underline;
+  }
+
+  /* Les liens sont peu nombreux : on les montre en clair à l'impression. */
+  main a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.9em;
+    word-break: break-all;
+  }
+
+  h2 {
+    page-break-after: avoid;
+  }
+
+  pre,
+  table {
+    page-break-inside: avoid;
+  }
+}

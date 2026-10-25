@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source des bibliothèques livrées — Infinite Media Player</title>
+<meta name="description" content="Offre de source au titre de la LGPL pour les bibliothèques embarquées dans Infinite Media Player : mpv, FFmpeg, libass, dav1d et media_kit.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="site-name"><a href="index.html">Infinite Media Player</a></p>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="confidentialite.html">Confidentialité</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="source.html" aria-current="page">Source</a></li>
+        <li><a href="licences.html">Licences</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<h1>Source des bibliothèques livrées</h1>
+
+<p>Infinite Media Player embarque un moteur de lecture et ses dépendances.
+Elles sont toutes sous licence libre, et deux d'entre elles — mpv et FFmpeg —
+sont sous licence GNU LGPL. La LGPL vous donne le droit de les modifier, de les
+recompiler, et de les remplacer dans l'application. Cette page est l'offre de
+source qui rend ce droit effectif.</p>
+
+<div class="note">
+  <span class="note-title">Ce qui est publié, et ce qui ne l'est pas</span>
+  <p>Ce qui est publié ici, c'est <strong>le code source des bibliothèques
+  libres livrées</strong> : mpv, FFmpeg, les correctifs media_kit, et la ligne
+  de compilation exacte. Ce qui ne l'est pas, c'est le code de l'application
+  elle-même : il n'est pas sous licence libre, et il n'a pas à l'être. Les
+  bibliothèques livrées ne sont pas de la GPL, mais de la LGPL — qui autorise
+  l'application à rester propriétaire.</p>
+</div>
+
+<h2>1. Les bibliothèques livrées</h2>
+
+<div class="table-scroll">
+<table>
+  <caption>Les bibliothèques natives embarquées, avec leur licence réelle.</caption>
+  <thead>
+    <tr><th>Composant</th><th>Version</th><th>Licence</th><th>Rôle</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mpv (via libmpv)</td>
+      <td>0.36.0</td>
+      <td>LGPL v2.1+</td>
+      <td>Le moteur de lecture. Il décode le MPEG-TS, le HLS et le MKV, y
+      compris les codecs qu'AVFoundation ne sait pas lire (HEVC, DTS).</td>
+    </tr>
+    <tr>
+      <td>FFmpeg (dans libmpv)</td>
+      <td>6.0</td>
+      <td>LGPL v3</td>
+      <td>Les décodeurs et les multiplexeurs, embarqués dans libmpv.</td>
+    </tr>
+    <tr>
+      <td>libass</td>
+      <td>0.17.1</td>
+      <td>ISC</td>
+      <td>Le rendu des sous-titres.</td>
+    </tr>
+    <tr>
+      <td>dav1d</td>
+      <td>1.2.1</td>
+      <td>BSD 2 clauses</td>
+      <td>Le décodeur AV1.</td>
+    </tr>
+    <tr>
+      <td>media_kit</td>
+      <td>1.2.6</td>
+      <td>MIT</td>
+      <td>La couche Dart qui pilote libmpv.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>mpv est compilé avec <code>-Dgpl=false</code>, et FFmpeg sans
+<code>--enable-gpl</code> ni <code>--enable-nonfree</code> : il n'y a
+<strong>aucun code GPL</strong> dans ce qui est livré. La mention ci-dessous
+est obligatoire, et FFmpeg l'exige mot pour mot :</p>
+
+<blockquote>
+<p><strong lang="en">This software uses libraries from the FFmpeg project under
+the LGPLv2.1 and LGPLv3.</strong></p>
+</blockquote>
+
+<p>FFmpeg exige que son nom et sa licence soient mentionnés, et que la source
+du logiciel soit téléchargeable depuis la page où l'application se télécharge.
+C'est cette page. Nous ne possédons pas FFmpeg, ni mpv : les détenteurs de
+leurs droits sont les projets FFmpeg et mpv, et leurs mentions de droit
+d'auteur sont reproduites dans les archives
+(<code>mpv-Copyright.txt</code>, <code>ffmpeg-LICENSE.md</code>).</p>
+
+<p>Les textes de licence complets sont dans la page
+<a href="licences.html">Licences</a>.</p>
+
+<h2>2. Pourquoi la source est publiée</h2>
+
+<p>La LGPL 2.1 (§6) offre quatre voies de conformité. Infinite est dans le
+cas de la voie <strong>(b), « shared library mechanism »</strong> : libmpv est
+une bibliothèque partagée sur chaque plateforme
+(<code>Mpv.framework</code> et les frameworks FFmpeg sur macOS et iOS,
+<code>libmpv.so</code> sur Android, <code>libmpv-2.dll</code> sur Windows), et
+non du code recopié dans l'exécutable.</p>
+
+<p>La FAQ de la GNU précise cependant que si l'on distribue soi-même la
+bibliothèque avec l'application, il faut aussi distribuer sa source. C'est
+pourquoi la source de mpv et de FFmpeg est publiée ici, <strong>correspondant
+exactement</strong> aux binaires distribués.</p>
+
+<p>La voie retenue est l'<strong>accès équivalent au source depuis le même
+endroit</strong> (LGPL 2.1 §6(d)) : les archives sont dans le
+<a href="source/README.md">dossier <code>source/</code></a> de ce site, avec
+leur somme SHA-256 dans un manifeste. En filet de sécurité, l'<strong>offre de
+source écrite</strong> de la §6(c) est également proposée — voir la
+section 5.</p>
+
+<p>Enfin, la LGPL 3 (§4(b)) exige que le texte de la GPL accompagne celui de
+la LGPL. C'est pourquoi les deux sont joints, et publiés sur la page
+<a href="licences.html">Licences</a>.</p>
+
+<h2>3. Les archives</h2>
+
+<p>Les versions diffèrent selon les plateformes : il y a
+<strong>une archive par famille de binaires</strong>, et non une seule pour
+tous.</p>
+
+<div class="table-scroll">
+<table>
+  <caption>Les archives, et la version de chaque composant dans chacune.</caption>
+  <thead>
+    <tr><th>Plateforme</th><th>mpv</th><th>FFmpeg</th><th>Archive</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>macOS et iOS</td>
+      <td>0.36.0 (<code>v0.36.0</code>)</td>
+      <td>6.0 (<code>n6.0</code>)</td>
+      <td><a href="source/infinite-source-darwin.tar.gz"><code>infinite-source-darwin.tar.gz</code></a></td>
+    </tr>
+    <tr>
+      <td>Android (téléphones, Android TV, Fire TV)</td>
+      <td>commit <code>78d43740f52db817d98bcf24fb30a76ab6fa13ff</code></td>
+      <td>commit <code>ea3d24bbe3c58b171e55fe2151fc7ffaca3ab3d2</code></td>
+      <td><a href="source/infinite-source-android.tar.gz"><code>infinite-source-android.tar.gz</code></a></td>
+    </tr>
+    <tr>
+      <td>Windows</td>
+      <td>commit de dev <code>0f78584</code> (21/10/2024)</td>
+      <td>commit <code>ea3d24bbe3c58b171e55fe2151fc7ffaca3ab3d2</code></td>
+      <td><a href="source/infinite-source-windows.tar.gz"><code>infinite-source-windows.tar.gz</code></a></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>L'archive macOS contient également la source de la version iOS : les deux
+plateformes sortent du même dépôt de compilation, avec le même source de mpv
+et de FFmpeg.</p>
+
+<p>Le <strong>nom</strong> de chaque archive est stable : il ne change pas
+d'une version à l'autre, et le lien ci-dessus est donc le même quel que soit
+le binaire que vous avez téléchargé. La date de compilation, la taille
+exacte et la somme SHA-256 de chaque archive sont dans le manifeste :</p>
+
+<p><a href="source/manifest.json"><code>source/manifest.json</code></a></p>
+
+<div class="note">
+  <span class="note-title">Avant la publication</span>
+  <p>Les archives sont produites par le script de compilation et déposées dans
+  le dossier <a href="source/README.md"><code>source/</code></a>, avec le
+  manifeste ci-dessus. Tant qu'elles n'y sont pas, cette page n'est pas
+  conforme à l'obligation de la LGPL : le lien de téléchargement doit
+  répondre. La <a href="source/README.md">spécification du dossier et du
+  manifeste</a> décrit précisément ce que le script produit.</p>
+</div>
+
+<p>Chaque archive contient :</p>
+
+<ul>
+  <li>le <strong>code source complet</strong> de mpv et de FFmpeg, dans la
+  version exacte ci-dessus ;</li>
+  <li>la <strong>recette de compilation complète</strong> du dépôt media-kit
+  qui a produit le binaire — ses scripts, son fichier de verrouillage et les
+  <strong>correctifs media_kit</strong> appliqués par-dessus. Sans eux, la
+  source ne correspond pas au binaire ;</li>
+  <li>la <strong>ligne de compilation exacte</strong>, écrite dans un fichier
+  texte à la racine de l'archive — c'est une exigence explicite de FFmpeg ;
+  elle est extraite des scripts de compilation, pas reconstituée ;</li>
+  <li>les <strong>textes de licence</strong> : LGPL 2.1 de mpv, LGPL v3 et
+  GPL v3 de FFmpeg, le <code>LICENSE.md</code> de FFmpeg, et la licence de la
+  recette de compilation ;</li>
+  <li>un <strong>README</strong> qui donne la commande exacte pour reproduire
+  le binaire.</li>
+</ul>
+
+<p>Le détail de ce que doit contenir chaque archive — noms, versions, sommes
+SHA-256, emplacement, format du manifeste — est décrit dans
+<a href="source/README.md"><code>source/README.md</code></a>.</p>
+
+<h2>4. La marche à suivre</h2>
+
+<p>Le but de cette procédure est simple : vous devez pouvoir
+<strong>remplacer libmpv par votre version</strong>, et recompiler
+l'application avec elle.</p>
+
+<ol>
+  <li><strong>Télécharger l'archive</strong> correspondant à votre plateforme,
+  dans le tableau ci-dessus.</li>
+  <li><strong>Vérifier l'intégrité.</strong> La somme SHA-256 de chaque archive
+  est publiée dans <code>source/manifest.json</code>. Sur macOS et Linux :
+  <code>shasum -a 256 infinite-source-darwin.tar.gz</code> — le
+  nom de fichier est celui de l'archive que vous avez téléchargée. La somme
+  affichée doit être <strong>identique</strong> à celle du manifeste.</li>
+  <li><strong>Extraire</strong> l'archive. Elle contient les sources de mpv et
+  de FFmpeg, la recette de compilation qui a produit le binaire — donc les
+  correctifs media_kit —, le fichier <code>LIGNE-DE-COMPILATION.txt</code> et
+  les licences.</li>
+  <li><strong>Appliquer les correctifs</strong> media_kit, dans l'ordre indiqué
+  par la recette, puis compiler avec les commandes exactes qui sont écrites
+  dans <code>LIGNE-DE-COMPILATION.txt</code>. Aucun paramètre n'est à deviner,
+  et aucune option n'y est abrégée.</li>
+  <li><strong>Remplacer</strong> la bibliothèque compilée par la vôtre :
+  <code>Mpv.framework</code> et les frameworks FFmpeg sur macOS et iOS,
+  <code>libmpv.so</code> sur Android, <code>libmpv-2.dll</code> sur Windows.</li>
+  <li><strong>Recompiler</strong> l'application avec la bibliothèque
+  remplacée.</li>
+</ol>
+
+<p>La licence vous en donne le droit : la LGPL garantit que l'utilisateur peut
+modifier et recompiler la bibliothèque, et aucune condition d'utilisation ne
+peut y déroger.</p>
+
+<h2>5. L'offre de source écrite</h2>
+
+<p>Si le téléchargement direct ne vous convient pas, ou si vous ne parvenez
+pas à obtenir une archive, vous pouvez en faire la demande. L'éditeur s'engage
+à vous transmettre l'archive correspondante, et ce
+<strong>pendant trois ans</strong> à compter de la date de publication
+(LGPL 2.1 §6(c)).</p>
+
+<ul>
+  <li><strong>Écrivez à :</strong>
+  <span class="a-completer">[À COMPLÉTER : adresse électronique pour l'offre de source écrite]</span></li>
+  <li><strong>Indiquez :</strong> la plateforme (macOS, iOS, Android ou
+  Windows), et la version de l'application que vous utilisez.</li>
+</ul>
+
+<p>Une demande par courriel suffit ; aucune pièce jointe n'est nécessaire.
+L'offre est faite au nom de l'éditeur, qui distribue l'application
+elle-même.</p>
+
+<h2>6. Ce que nous ne faisons pas</h2>
+
+<p>Deux précisions, pour que la page soit exacte :</p>
+
+<ul>
+  <li>Le code source de l'<strong>application</strong> n'est pas publié. Il
+  n'est pas sous licence libre, et il n'a pas à l'être : les bibliothèques
+  livrées sont en LGPL, pas en GPL.</li>
+  <li>La variante <code>encodersgpl</code> de media_kit, qui contient des
+  composants GPL (dont libx264), <strong>n'est pas</strong> celle qui est
+  livrée. Elle ne fait donc partie d'aucune archive.</li>
+</ul>
+
+<p>Pour le reste — les licences, leurs versions exactes, et le texte des
+licences en entier — voir la page <a href="licences.html">Licences</a>.</p>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Éditeur : <span class="a-completer">[À COMPLÉTER : nom ou raison sociale de l'éditeur]</span></p>
+    <p>Contact : <span class="a-completer">[À COMPLÉTER : adresse électronique de contact]</span></p>
+    <p>© 2026 Infinite Media Player — <a href="mentions-legales.html">mentions légales</a> · <a href="confidentialite.html">confidentialité</a> · <a href="source.html">source</a> · <a href="licences.html">licences</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

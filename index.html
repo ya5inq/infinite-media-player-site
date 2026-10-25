@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infinite Media Player</title>
+<meta name="description" content="Infinite Media Player — lecteur IPTV. Politique de confidentialité, mentions légales, offre de source LGPL et licences des bibliothèques livrées.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="site-name"><a href="index.html">Infinite Media Player</a></p>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html" aria-current="page">Accueil</a></li>
+        <li><a href="confidentialite.html">Confidentialité</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="source.html">Source</a></li>
+        <li><a href="licences.html">Licences</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<h1>Infinite Media Player</h1>
+
+<p>Infinite est un <strong>lecteur</strong>. Il ne fournit aucun contenu : il lit ce
+que vous lui demandez de lire, auprès du fournisseur que vous avez vous-même
+choisi et que vous avez saisi vous-même. Les chaînes, les films et les séries
+viennent de votre compte, chez votre fournisseur.</p>
+
+<p>L'application ne collecte rien, ne mesure rien et n'envoie rien à son
+éditeur. Il n'y a ni télémétrie, ni traceur, ni SDK d'analyse, ni publicité,
+ni rapport de plantage automatique. Ce site ne contient ni cookie, ni script
+d'analyse, ni traqueur : il se charge entièrement et fonctionne hors ligne.</p>
+
+<div class="note">
+  <span class="note-title">Pourquoi ces pages existent</span>
+  <p>Les magasins d'applications — Google Play, App Store, Amazon Appstore,
+  Microsoft Store — exigent que l'éditeur publie, à une adresse publique qui
+  répond, plusieurs documents. La LGPL exige, en plus, que la source des
+  bibliothèques livrées soit publiée et que leur licence soit jointe.
+  <strong>Ce site répond à ces deux obligations.</strong></p>
+</div>
+
+<h2>Les documents</h2>
+
+<ul class="documents">
+  <li>
+    <h3><a href="confidentialite.html">Politique de confidentialité</a></h3>
+    <p>Ce que l'application envoie, ce qu'elle garde sur votre appareil, ce
+    qu'elle ne fait pas. En français, puis en anglais.</p>
+    <p>Version publiée : <span class="a-completer">[À COMPLÉTER : date de publication de la politique]</span></p>
+  </li>
+  <li>
+    <h3><a href="mentions-legales.html">Mentions légales</a></h3>
+    <p>Les informations que la loi française exige de l'éditeur et de
+    l'hébergeur de ce site (article 1-1 de la loi n° 2004-575).</p>
+  </li>
+  <li>
+    <h3><a href="source.html">Source des bibliothèques livrées</a></h3>
+    <p>L'offre de source au titre de la LGPL : les archives de source, la
+    ligne de compilation exacte, et la marche à suivre pour recompiler
+    l'application avec libmpv.</p>
+  </li>
+  <li>
+    <h3><a href="licences.html">Licences des bibliothèques livrées</a></h3>
+    <p>Les textes de licence complets, tels qu'ils sont livrés dans
+    l'application.</p>
+  </li>
+</ul>
+
+<h2>Les bibliothèques livrées</h2>
+
+<p>L'application embarque un moteur de lecture et ses dépendances. Toutes sont
+sous licence libre, et aucune n'est sous licence GPL : le code de
+l'application reste la propriété de son éditeur.</p>
+
+<div class="table-scroll">
+<table>
+  <caption>Bibliothèques natives embarquées, avec leur version exacte et leur licence.</caption>
+  <thead>
+    <tr><th>Composant</th><th>Version</th><th>Licence</th><th>Rôle</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mpv (via libmpv)</td>
+      <td>0.36.0</td>
+      <td>LGPL v2.1+</td>
+      <td>Le moteur de lecture. Il décode le MPEG-TS, le HLS et le MKV, y
+      compris les codecs qu'AVFoundation ne sait pas lire (HEVC, DTS).</td>
+    </tr>
+    <tr>
+      <td>FFmpeg (dans libmpv)</td>
+      <td>6.0</td>
+      <td>LGPL v3</td>
+      <td>Les décodeurs et les multiplexeurs, embarqués dans libmpv.</td>
+    </tr>
+    <tr>
+      <td>libass</td>
+      <td>0.17.1</td>
+      <td>ISC</td>
+      <td>Le rendu des sous-titres.</td>
+    </tr>
+    <tr>
+      <td>dav1d</td>
+      <td>1.2.1</td>
+      <td>BSD 2 clauses</td>
+      <td>Le décodeur AV1.</td>
+    </tr>
+    <tr>
+      <td>media_kit</td>
+      <td>1.2.6</td>
+      <td>MIT</td>
+      <td>La couche Dart qui pilote libmpv.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Le texte intégral de chaque licence est dans la page
+<a href="licences.html">Licences</a>. La source, elle, est dans
+<a href="source.html">la page source</a>.</p>
+
+<h2>Le code de l'application</h2>
+
+<p>Le code de l'application n'est pas publié : il n'a pas à l'être. Ce qui est
+sous licence libre, ce sont les bibliothèques listées ci-dessus, et c'est leur
+source qui est publiée — pas celle de l'application.</p>
+
+<p>Cette page correspond à la version <strong>0.1.0</strong> de
+l'application.</p>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Éditeur : <span class="a-completer">[À COMPLÉTER : nom ou raison sociale de l'éditeur]</span></p>
+    <p>Contact : <span class="a-completer">[À COMPLÉTER : adresse électronique de contact]</span></p>
+    <p>© 2026 Infinite Media Player — <a href="mentions-legales.html">mentions légales</a> · <a href="confidentialite.html">confidentialité</a> · <a href="source.html">source</a> · <a href="licences.html">licences</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

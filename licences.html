@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Licences des bibliothèques livrées — Infinite Media Player</title>
+<meta name="description" content="Textes de licence complets des bibliothèques embarquées dans Infinite Media Player : mpv, FFmpeg, libass, dav1d, media_kit.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="site-name"><a href="index.html">Infinite Media Player</a></p>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="confidentialite.html">Confidentialité</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="source.html">Source</a></li>
+        <li><a href="licences.html" aria-current="page">Licences</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<h1>Licences des bibliothèques livrées</h1>
+
+<p>Les bibliothèques listées ci-dessous sont embarquées dans l'application
+Infinite Media Player. Le texte intégral de chaque licence est reproduit ici,
+sans modification, et est également affiché dans l'application, dans son écran
+« Licences ».</p>
+
+<div class="note">
+  <span class="note-title">Un texte de GPL est-il présent ?</span>
+  <p>Oui, et ce n'est pas contradictoire. La LGPL est une
+  <strong>modification</strong> de la GPL, et elle exige que le texte de la GPL
+  accompagne le sien : sans lui, l'utilisateur ne peut pas savoir à quoi la
+  LGPL s'applique. La présence d'un texte de GPL ne dit
+  <strong>rien</strong> de la licence du binaire, qui reste en LGPL — mpv est
+  compilé avec <code>-Dgpl=false</code>, et FFmpeg sans
+  <code>--enable-gpl</code>.</p>
+</div>
+
+<h2>1. Les bibliothèques livrées</h2>
+
+<div class="table-scroll">
+<table>
+  <caption>Bibliothèques natives embarquées, versions exactes et licence applicable.</caption>
+  <thead>
+    <tr><th>Composant</th><th>Version</th><th>Licence</th><th>Texte</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mpv (via libmpv)</td>
+      <td>0.36.0</td>
+      <td>LGPL v2.1+</td>
+      <td><a href="licences/mpv-LGPL-2.1.txt">mpv-LGPL-2.1.txt</a></td>
+    </tr>
+    <tr>
+      <td>FFmpeg (dans libmpv)</td>
+      <td>6.0</td>
+      <td>LGPL v3</td>
+      <td><a href="licences/ffmpeg-LGPLv3.txt">ffmpeg-LGPLv3.txt</a></td>
+    </tr>
+    <tr>
+      <td>libass</td>
+      <td>0.17.1</td>
+      <td>ISC</td>
+      <td><a href="licences/libass-ISC.txt">libass-ISC.txt</a></td>
+    </tr>
+    <tr>
+      <td>dav1d</td>
+      <td>1.2.1</td>
+      <td>BSD 2 clauses</td>
+      <td><a href="licences/dav1d-BSD-2.txt">dav1d-BSD-2.txt</a></td>
+    </tr>
+    <tr>
+      <td>media_kit</td>
+      <td>1.2.6</td>
+      <td>MIT</td>
+      <td><a href="licences/media_kit-MIT.txt">media_kit-MIT.txt</a></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3>mpv 0.36.0 — LGPL v2.1 ou ultérieure</h3>
+
+<p>Le moteur de lecture. Il décode le MPEG-TS, le HLS et le MKV, y compris les
+codecs qu'AVFoundation ne sait pas lire (HEVC, DTS). Il est lié dynamiquement
+sous forme de bibliothèque partagée : <code>Mpv.framework</code> sur macOS et
+iOS, <code>libmpv.so</code> sur Android, <code>libmpv-2.dll</code> sur
+Windows. La compilation est faite avec <code>-Dgpl=false</code> : mpv est donc
+bien en LGPL, et non en GPL.</p>
+
+<p>Texte de licence : <a href="licences/mpv-LGPL-2.1.txt">GNU Lesser General
+Public License, version 2.1</a>.</p>
+
+<h3>FFmpeg 6.0 — LGPL v3</h3>
+
+<p>Les décodeurs et les multiplexeurs, embarqués dans libmpv. La compilation
+est faite sans <code>--enable-gpl</code> et sans <code>--enable-nonfree</code>.
+La mention ci-dessous est obligatoire, et FFmpeg l'exige mot pour mot :</p>
+
+<blockquote>
+<p><strong lang="en">This software uses libraries from the FFmpeg project under
+the LGPLv2.1 and LGPLv3.</strong></p>
+</blockquote>
+
+<p>Texte de licence : <a href="licences/ffmpeg-LGPLv3.txt">GNU Lesser General
+Public License, version 3</a>.</p>
+
+<p>Une précision, pour éviter une confusion : le fichier
+<code>LICENSE.md</code> de FFmpeg dit <em>« Most files in FFmpeg are under the
+GNU Lesser General Public License version 2.1 or later »</em>, et la balise du
+binaire dit <em>« LGPL version 3 or later »</em>. Les deux sont vrais : « v2.1
+<strong>ou plus tard</strong> » inclut la v3. C'est la LGPL v3 qui est jointe,
+parce que c'est elle que la compilation utilise.</p>
+
+<h3>libass 0.17.1 — ISC</h3>
+
+<p>Le rendu des sous-titres.</p>
+
+<p>Texte de licence : <a href="licences/libass-ISC.txt">ISC License</a>.</p>
+
+<h3>dav1d 1.2.1 — BSD 2 clauses</h3>
+
+<p>Le décodeur AV1.</p>
+
+<p>Texte de licence : <a href="licences/dav1d-BSD-2.txt">dav1d — BSD 2
+clauses</a>.</p>
+
+<h3>media_kit 1.2.6 — MIT</h3>
+
+<p>La couche Dart qui pilote libmpv.</p>
+
+<p>Texte de licence : <a href="licences/media_kit-MIT.txt">MIT License</a>.</p>
+
+<p>Une nuance à connaître : le fichier <code>LICENSE.txt</code> des dépôts de
+compilation de media_kit est en MIT, mais il couvre <strong>le script de
+packaging</strong>, pas mpv ni FFmpeg. C'est pourquoi la licence de mpv et de
+FFmpeg est donnée ci-dessus, et non celle de media_kit.</p>
+
+<h2>2. Les textes qui doivent les accompagner</h2>
+
+<p>Ces quatre textes ne sont pas la licence d'une bibliothèque en particulier :
+ils sont la condition de validité de celles qui le sont.</p>
+
+<div class="table-scroll">
+<table>
+  <caption>Textes joints par obligation de la LGPL.</caption>
+  <thead>
+    <tr><th>Texte</th><th>Pourquoi il est là</th><th>Fichier</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GNU GPL v2</td>
+      <td>Le texte de la licence GPL v2, que la LGPL 2.1 reprend et modifie. La
+      LGPL exige qu'il accompagne le sien.</td>
+      <td><a href="licences/mpv-GPL-2.txt">mpv-GPL-2.txt</a></td>
+    </tr>
+    <tr>
+      <td>Mentions de droit d'auteur de mpv</td>
+      <td>Les mentions de droit d'auteur de mpv, et l'explication de pourquoi
+      cette compilation est en LGPL et non en GPL.</td>
+      <td><a href="licences/mpv-Copyright.txt">mpv-Copyright.txt</a></td>
+    </tr>
+    <tr>
+      <td>GNU GPL v3</td>
+      <td>Le texte de la licence GPL v3, que la LGPL v3 reprend et modifie.
+      Même obligation que ci-dessus.</td>
+      <td><a href="licences/ffmpeg-GPLv3.txt">ffmpeg-GPLv3.txt</a></td>
+    </tr>
+    <tr>
+      <td>Description de licence de FFmpeg</td>
+      <td>La description de la licence de FFmpeg, telle que le projet la
+      publie : quelles parties sont en GPL, et comment on l'évite.</td>
+      <td><a href="licences/ffmpeg-LICENSE.md">ffmpeg-LICENSE.md</a></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>3. Le code de l'application</h2>
+
+<p>Le code de l'application Infinite Media Player n'est pas sous licence
+libre, et il n'est pas distribué sous une licence libre. Il ne fait pas partie
+de cette liste, et son code n'est pas publié.</p>
+
+<p>Ce qui doit l'être, c'est la source des bibliothèques ci-dessus : elle est
+publiée sur la page <a href="source.html">Source des bibliothèques livrées</a>.</p>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Éditeur : <span class="a-completer">[À COMPLÉTER : nom ou raison sociale de l'éditeur]</span></p>
+    <p>Contact : <span class="a-completer">[À COMPLÉTER : adresse électronique de contact]</span></p>
+    <p>© 2026 Infinite Media Player — <a href="mentions-legales.html">mentions légales</a> · <a href="confidentialite.html">confidentialité</a> · <a href="source.html">source</a> · <a href="licences.html">licences</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
