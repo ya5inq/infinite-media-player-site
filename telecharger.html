@@ -55,12 +55,12 @@ qui correspond à votre télévision.</p>
   </thead>
   <tbody>
     <tr>
-      <td><a href="telechargement/infinite-android-tv-arm64.apk"><strong>infinite-android-tv-arm64.apk</strong></a></td>
+      <td><a href="https://ya5inq.github.io/infinite-media-player-site/arm64.apk"><strong>arm64.apk</strong></a></td>
       <td>Android TV, Fire Stick <strong>64 bits</strong> — la plupart des modèles</td>
       <td>32,6 Mo</td>
     </tr>
     <tr>
-      <td><a href="telechargement/infinite-android-tv-armv7.apk"><strong>infinite-android-tv-armv7.apk</strong></a></td>
+      <td><a href="https://ya5inq.github.io/infinite-media-player-site/armv7.apk"><strong>armv7.apk</strong></a></td>
       <td>Fire Stick <strong>32 bits</strong> — les modèles d'entrée de gamme</td>
       <td>29,4 Mo</td>
     </tr>
@@ -75,33 +75,18 @@ qui correspond à votre télévision.</p>
 `arm64-v8a` → le premier ; `armeabi-v7a` → le second.
 
 <p>Les sommes de contrôle sont publiées avec les fichiers :
-<a href="telechargement/SHA256SUMS">SHA256SUMS</a>.</p>
+<a href="https://ya5inq.github.io/infinite-media-player-site/SHA256SUMS">SHA256SUMS</a>.</p>
 
 <h2>🇫🇷 Le lien court</h2>
 
-<p>Sur une télévision, une adresse se tape à la télécommande. Voici des liens
-beaucoup plus courts — <strong>le même fichier</strong>, aux octets près :</p>
+<p>Les fichiers ci-dessus sont à la racine du site, sous des noms courts : sur
+une télévision, une adresse se tape <strong>à la télécommande</strong>, et
+chaque caractère compte. Ce sont <strong>les mêmes fichiers</strong>, aux
+octets près.</p>
 
-<div class="table-scroll">
-<table>
-  <caption>Deux liens courts, à taper dans l'application « Downloader ».</caption>
-  <thead>
-    <tr><th>Adresse</th><th>Pour qui</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://ya5inq.github.io/dl/arm64.apk"><code>ya5inq.github.io/dl/arm64.apk</code></a></td>
-      <td>64 bits (<code>arm64-v8a</code>)</td>
-    </tr>
-    <tr>
-      <td><a href="https://ya5inq.github.io/dl/armv7.apk"><code>ya5inq.github.io/dl/armv7.apk</code></a></td>
-      <td>32 bits (<code>armeabi-v7a</code>)</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<p>Sans le préfixe <code>https://</code>, Downloader les accepte aussi.</p>
+<p>L'adresse complète est
+<code>ya5inq.github.io/infinite-media-player-site/arm64.apk</code> ; Downloader
+accepte de la taper sans le préfixe <code>https://</code>.</p>
 
 <h2>🇫🇷 L'installer</h2>
 
@@ -119,7 +104,7 @@ Appstore) est celle qui sert à installer un fichier téléchargé.</p>
   (Fire OS 8 : la question est posée au moment d'installer ; sur les autres
   versions, ce réglage doit être donné à l'avance.)</li>
   <li>Ouvrez Downloader → <strong>Enter URL</strong> → tapez
-  <code>ya5inq.github.io/dl/arm64.apk</code> → <strong>Download</strong>.</li>
+  <code>ya5inq.github.io/infinite-media-player-site/arm64.apk</code> → <strong>Download</strong>.</li>
   <li>Le fichier atterrit dans <em>Downloader / Downloads</em>. Ouvrez-le :
   Android demande l'autorisation d'installer, puis l'installation démarre.</li>
 </ol>
@@ -139,7 +124,7 @@ directement le fichier.</p>
   <li>Sur la télé, ouvrez <strong>Downloader</strong> et laissez la case
   <em>Enter URL</em> prête à recevoir du texte.</li>
   <li>Dans l'application du téléphone, tapez l'adresse
-  <code>ya5inq.github.io/dl/arm64.apk</code> : elle s'écrit dans la case de la
+  <code>ya5inq.github.io/infinite-media-player-site/arm64.apk</code> : elle s'écrit dans la case de la
   télévision. Validez, puis <strong>Download</strong>.</li>
   <li>Le fichier atterrit dans <em>Downloader / Downloads</em>. Ouvrez-le :
   Android demande l'autorisation d'installer, puis l'installation démarre.</li>
@@ -165,13 +150,13 @@ Developer options* → <em>USB debugging</em> à <em>On</em> (Fire OS), ou
 *Paramètres → À propos* puis sept fois sur le numéro de version (Android TV).
 Branchez, acceptez l'empreinte sur l'écran, puis :</p>
 
-<pre><code>adb install -r infinite-android-tv-arm64.apk</code></pre>
+<pre><code>adb install -r arm64.apk</code></pre>
 
 <p><strong>Sans câble</strong> — sur Fire OS, avec <em>ADB debugging</em>
 activé :</p>
 
 <pre><code>adb connect 192.168.1.42:5555      # l'adresse de la télé
-adb install -r infinite-android-tv-arm64.apk</code></pre>
+adb install -r arm64.apk</code></pre>
 
 <p><strong>Sans adb</strong> — copiez le `.apk` sur une clé USB et ouvrez-le
 avec le gestionnaire de fichiers de la télé. Android refuse par défaut
@@ -209,13 +194,13 @@ now and updating it from a store later causes no problem.</p>
 with the publisher: it uses the account of your own provider.</p>
 
 <p lang="en">Two files, one per architecture:
-<a href="telechargement/infinite-android-tv-arm64.apk"><strong>infinite-android-tv-arm64.apk</strong></a>
+<a href="https://ya5inq.github.io/infinite-media-player-site/arm64.apk"><strong>arm64.apk</strong></a>
 (32.6 MB — most Android TV devices and Fire TV sticks) and
-<a href="telechargement/infinite-android-tv-armv7.apk"><strong>infinite-android-tv-armv7.apk</strong></a>
+<a href="https://ya5inq.github.io/infinite-media-player-site/armv7.apk"><strong>armv7.apk</strong></a>
 (29.4 MB — 32-bit Fire TV sticks). To know which one your device needs:
 <code>adb shell getprop ro.product.cpu.abi</code> — <code>arm64-v8a</code> or
 <code>armeabi-v7a</code>. Checksums are published alongside the files:
-<a href="telechargement/SHA256SUMS">SHA256SUMS</a>.</p>
+<a href="https://ya5inq.github.io/infinite-media-player-site/SHA256SUMS">SHA256SUMS</a>.</p>
 
 <p lang="en"><strong>These are not two applications.</strong> It is the same
 application, compiled twice: once for 64-bit processors, once for 32-bit
@@ -227,8 +212,8 @@ television.</p>
 requires allowing unknown sources for the file manager on the device.</p>
 
 <p lang="en">Short links, for typing on a TV remote — the very same files:
-<a href="https://ya5inq.github.io/dl/arm64.apk"><code>ya5inq.github.io/dl/arm64.apk</code></a>
-and <a href="https://ya5inq.github.io/dl/armv7.apk"><code>ya5inq.github.io/dl/armv7.apk</code></a>.
+<a href="https://ya5inq.github.io/infinite-media-player-site/arm64.apk"><code>ya5inq.github.io/infinite-media-player-site/arm64.apk</code></a>
+and <a href="https://ya5inq.github.io/infinite-media-player-site/armv7.apk"><code>ya5inq.github.io/infinite-media-player-site/armv7.apk</code></a>.
 On a Fire TV, install the <strong>Downloader</strong> app from the Amazon
 Appstore, then <em>Enter URL</em>.</p>
 
@@ -236,7 +221,7 @@ Appstore, then <em>Enter URL</em>.</p>
 <strong>Amazon Fire TV</strong> app (Google Play, free); the phone and the
 television must be on the same Wi-Fi network. Open Downloader on the
 television, leave its <em>Enter URL</em> field ready, and type
-<code>ya5inq.github.io/dl/arm64.apk</code> in the phone app: the text
+<code>ya5inq.github.io/infinite-media-player-site/arm64.apk</code> in the phone app: the text
 appears on the television. To send the <em>file</em> instead of an address,
 <strong>Apps2Fire</strong> sends it and installs it, and <strong>Send files
 to TV</strong> drops it into the television's downloads, where the

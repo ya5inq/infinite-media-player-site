@@ -46,6 +46,25 @@ de chaque archive, dans `LIGNE-DE-COMPILATION.txt` : c'est ce que la
 checklist FFmpeg exige, et c'est ce qui permet de recompiler le binaire
 publié.
 
+## Les fichiers d'installation
+
+Le dépôt porte aussi les fichiers d'installation pour Android TV, **à la
+racine**, sous des noms courts : sur une télévision, l'adresse se tape à la
+télécommande, et chaque caractère compte.
+
+| Fichier | Pour qui |
+|---|---|
+| [`arm64.apk`](arm64.apk) | Android TV, Fire TV 64 bits (`arm64-v8a`) |
+| [`armv7.apk`](armv7.apk) | Fire TV 32 bits (`armeabi-v7a`) |
+
+Les sommes de contrôle sont dans [`SHA256SUMS`](SHA256SUMS).
+
+Sur la télévision : application **Downloader** (Amazon Appstore) → *Enter URL* →
+`ya5inq.github.io/infinite-media-player-site/arm64.apk` → *Download* → puis ouvrir
+le fichier téléchargé et installer.
+
+La page complète est ici : [`telecharger.html`](telecharger.html)
+
 ## Ce que ce dépôt ne contient pas
 
 Le code de l'application. Il n'est pas sous licence libre, il n'a pas à
