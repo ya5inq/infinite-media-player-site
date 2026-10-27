@@ -24,7 +24,9 @@ l'application, lui, n'est pas public, et n'a pas à l'être.
 Les bibliothèques livrées — mpv, FFmpeg, libass, dav1d, media_kit — sont
 sous **LGPL**. La LGPL 2.1 §6 demande que le source soit accessible
 **depuis le même endroit** que le binaire : il est donc ici, dans
-[`source/`](source/).
+[`source/`](source/). La police des sous-titres, Roboto, est en Apache 2 :
+son texte est dans [`licences/`](licences/), et elle n'impose pas la
+publication du source.
 
 | Fichier | Ce que c'est |
 |---|---|

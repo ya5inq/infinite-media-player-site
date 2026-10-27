@@ -1,7 +1,7 @@
 {
   "projet": "Infinite Media Player",
   "objet": "Archives de source exigées par la LGPL 2.1 §6 et la LGPL v3 §4",
-  "genere_le": "2026-10-25T07:20:11Z",
+  "genere_le": "2026-10-27T15:31:11Z",
   "generateur": "apps/flutter/tool/prepare-source-offer.sh",
   "licences": {
     "libmpv": "LGPL 2.1 or later",
@@ -12,9 +12,9 @@
       "plateforme": "darwin",
       "libelle": "macOS et iOS",
       "nom": "infinite-source-darwin.tar.gz",
-      "taille_octets": 19019782,
-      "sha256": "2ae0e27de1b44deaa1f7e6f5de9bebf590338c6b4af82630005d36e9e3913a47",
-      "date": "2026-10-25",
+      "taille_octets": 19019673,
+      "sha256": "88ea078fee920c7a9397ec61dc9cdf1d893b9a3fbb51f73f97b9da21a1e8bddc",
+      "date": "2026-10-27",
       "depot_de_compilation": {
         "url": "https://github.com/media-kit/libmpv-darwin-build",
         "release": "v0.6.0",
@@ -44,15 +44,15 @@
       "ligne_de_compilation": "mpv : meson setup build --cross-file cross-files/macos-<arch>.ini --prefix=<sortie> -Dlibmpv=true -Dgpl=false -Dbuild-date=true -Diconv=enabled -Duchardet=enabled -Dzlib=enabled -Dgl=enabled -Dplain-gl=enabled -Dcoreaudio=enabled -Dcocoa=enabled -Dgl-cocoa=enabled -Dvideotoolbox-gl=enabled ; FFmpeg : meson setup build --cross-file cross-files/macos-<arch>.ini --prefix=<sortie> -Dvariant=video -Dflavor=default (options exactes : scripts/ffmpeg/meson.build)",
       "commande_de_reproduction": "git clone --branch v0.6.0 --depth 1 https://github.com/media-kit/libmpv-darwin-build.git cd libmpv-darwin-build # macOS : xcframework universel (slice arm64 et slice amd64) make VERSION=v0.6.0 build/output/libmpv-xcframeworks_v0.6.0_macos-universal-video-default.tar.gz # iOS : xcframework universel (slice arm64 et slice simulateur) make VERSION=v0.6.0 build/output/libmpv-xcframeworks_v0.6.0_ios-universal-video-default.tar.gz",
       "licence": "LGPL 2.1 (mpv) et LGPL v3 (FFmpeg) — vérifié dans la recette : mpv est compilé avec -Dgpl=false, et FFmpeg sans --enable-gpl.",
-      "nom_original": "infinite-source-darwin-2026-10-25.tar.gz"
+      "nom_original": "infinite-source-darwin-2026-10-27.tar.gz"
     },
     {
       "plateforme": "android",
       "libelle": "Android (arm64-v8a, armeabi-v7a, x86, x86_64)",
       "nom": "infinite-source-android.tar.gz",
-      "taille_octets": 19038645,
-      "sha256": "7a3e16ed925dff98759a2c09f521dad01bf517582cc7123f82be1bb365dd2379",
-      "date": "2026-10-25",
+      "taille_octets": 19038757,
+      "sha256": "788c5d3a032ffd49748a4e56ef4b95946ab578164ec6fed6213e4cd12bf0ea99",
+      "date": "2026-10-27",
       "depot_de_compilation": {
         "url": "https://github.com/media-kit/libmpv-android-video-build",
         "release": "v1.1.7",
@@ -82,15 +82,15 @@
       "ligne_de_compilation": "mpv : meson setup _build$ndk_suffix --cross-file <prefix>/crossfile.txt --prefer-static --default-library shared -Dgpl=false -Dlibmpv=true -Dlua=disabled -Dcplayer=false -Diconv=disabled -Dvulkan=disabled -Dlibplacebo=disabled -Dmanpage-build=disabled ; FFmpeg : ../configure --target-os=android --enable-cross-compile --disable-gpl --disable-nonfree --enable-version3 --enable-static --disable-shared (options exactes : buildscripts/flavors/default.sh)",
       "commande_de_reproduction": "git clone --branch v1.1.7 --depth 1 https://github.com/media-kit/libmpv-android-video-build.git cd libmpv-android-video-build/buildscripts ./download.sh # récupère mpv (commit 78d43740f52db817d98bcf24fb30a76ab6fa13ff) et FFmpeg (n6.0) ./patch.sh # applique les correctifs media-kit ./build.sh # compile libmpv pour les quatre ABI",
       "licence": "LGPL 2.1 (mpv) et LGPL v3 (FFmpeg) — vérifié dans la recette : buildscripts/flavors/default.sh impose --disable-gpl --disable-nonfree --enable-version3.",
-      "nom_original": "infinite-source-android-2026-10-25.tar.gz"
+      "nom_original": "infinite-source-android-2026-10-27.tar.gz"
     },
     {
       "plateforme": "windows",
       "libelle": "Windows (x86_64)",
       "nom": "infinite-source-windows.tar.gz",
-      "taille_octets": 19029035,
-      "sha256": "7fd7c7c850ed76653587d53f0b3f752656292c516bfb0939b685c99879ad002e",
-      "date": "2026-10-25",
+      "taille_octets": 19029189,
+      "sha256": "18d4c8b88d1428a7b84a75d944d3fce9238fb8fc4b6586219f04e6d0d3f1e5c4",
+      "date": "2026-10-27",
       "depot_de_compilation": {
         "url": "https://github.com/media-kit/libmpv-win32-video-build",
         "release": "2023-09-24",
@@ -120,7 +120,7 @@
       "ligne_de_compilation": "mpv : meson setup <BINARY_DIR> <SOURCE_DIR> -Dgpl=false -Dlibmpv=true -Ddefault_library=shared -Dprefer_static=True --buildtype=release (configuration recopiée du binaire livré) ; FFmpeg : <SOURCE_DIR>/configure --disable-gpl --disable-nonfree --enable-version3 --enable-static --disable-shared --disable-muxers --disable-decoders --disable-encoders --disable-demuxers --disable-parsers --disable-protocols --disable-filters --disable-programs --disable-postproc (configuration recopiée du binaire livré ; la ligne complète est dans LIGNE-DE-COMPILATION.txt)",
       "commande_de_reproduction": "git clone --branch 2023-09-24 --depth 1 https://github.com/media-kit/libmpv-win32-video-build.git cd libmpv-win32-video-build # Le système de compilation est « mpv-winbuild-cmake » : CMake, Ninja, et # une toolchain MinGW. Le binaire publié a été compilé dans un répertoire # « build64 » ; la configuration effective est dans LIGNE-DE-COMPILATION.txt. cmake -DTARGET_ARCH=x86_64-w64-mingw32 -DCOMPILER_TOOLCHAIN=clang \\ -DCMAKE_INSTALL_PREFIX=$PWD/clang_root \\ -DMINGW_INSTALL_PREFIX=$PWD/build_x86_64/x86_64-w64-mingw32 \\ -DSINGLE_SOURCE_LOCATION=$PWD/src_packages -DRUSTUP_LOCATION=$PWD/clang_root/install_rustup \\ -DENABLE_CCACHE=ON -DCLANG_PACKAGES_LTO=ON -G Ninja --fresh -B build_x86_64 -S $PWD ninja -C build_x86_64 mpv ninja -C build_x86_64 mpv-packaging",
       "licence": "LGPL 2.1 (mpv) et LGPL v3 (FFmpeg) — vérifié dans le binaire livré lui-même : « libavcodec license: LGPL version 3 or later », et une configuration FFmpeg en « --disable-gpl --disable-nonfree --enable-version3 ».",
-      "nom_original": "infinite-source-windows-2026-10-25.tar.gz"
+      "nom_original": "infinite-source-windows-2026-10-27.tar.gz"
     }
   ]
 }
