@@ -63,6 +63,21 @@ chaque caractère compte.
 
 Les sommes de contrôle sont dans [`SHA256SUMS`](SHA256SUMS).
 
+Le numéro de version est dans [`version.json`](version.json) : c'est le
+fichier que l'application lit quand l'utilisateur presse « Vérifier les
+mises à jour », dans l'écran « À propos ». Il ne dit que la version publiée
+et l'adresse du fichier à télécharger.
+
+```json
+{
+  "version": "0.1.0",
+  "page": "https://ya5inq.github.io/infinite-media-player-site/telecharger.html",
+  "fichiers": {
+    "macos": "https://ya5inq.github.io/infinite-media-player-site/macos.dmg"
+  }
+}
+```
+
 Sur la télévision : application **Downloader** (Amazon Appstore) → *Enter URL* →
 `ya5inq.github.io/infinite-media-player-site/arm64.apk` → *Download* → puis ouvrir
 le fichier téléchargé et installer.
