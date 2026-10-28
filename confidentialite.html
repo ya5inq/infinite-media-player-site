@@ -32,14 +32,7 @@
 
 <h1>Politique de confidentialité — Infinite Media Player</h1>
 
-<div class="note">
-  <span class="note-title">Avant la mise en ligne</span>
-  <p>Les mentions entre crochets signalent les rares informations que seul
-  l'éditeur possède — son adresse postale, son téléphone, et l'hébergeur du
-  serveur de synchronisation s'il l'auto-héberge. Elles ne peuvent pas être
-  devinées, et doivent être remplacées avant la publication. Tant qu'elles
-  sont visibles, ce texte n'est pas publiable tel quel.</p>
-</div>
+
 
 <h2>🇫🇷 Version française</h2>
 
@@ -47,7 +40,7 @@
 
 <p>Infinite Media Player est édité par
 <strong>ya5inq</strong>, éditeur indépendant
-— <span class="a-completer">[À COMPLÉTER : adresse postale de l'éditeur]</span>.</p>
+— 12 Terrasses de la Ravinière, 95520 Osny, France.</p>
 
 <p>L'éditeur publie sous son nom personnel : il n'y a ni société, ni capital
 social, ni numéro RCS, ni numéro de TVA. Si l'éditeur s'immatricule plus
@@ -81,8 +74,13 @@ ce que l'utilisateur lui demande de lire, auprès du <strong>fournisseur que
 l'utilisateur a lui-même choisi</strong> et qu'il a saisi lui-même.</p>
 
 <p>L'application <strong>ne collecte rien, ne mesure rien, et n'envoie rien à
-son éditeur</strong>. Il n'y a ni télémétrie, ni traceur, ni SDK d'analyse, ni
-publicité, ni rapport de plantage automatique.</p>
+son éditeur</strong> — tant que vous n'avez pas créé de compte d'abonnement.
+Il n'y a ni télémétrie, ni traceur, ni SDK d'analyse, ni publicité, ni rapport
+de plantage automatique.</p>
+
+<p>Si vous créez un compte d'abonnement, l'application parle alors au serveur
+de l'éditeur : c'est le seul écart à la règle, et la section 5 dit exactement
+ce qui transite, ce qui est conservé, et pendant combien de temps.</p>
 
 <h3>3. Ce que l'application envoie</h3>
 
@@ -98,6 +96,17 @@ votre appareil au serveur du fournisseur, à l'adresse que vous avez saisie.</p>
 le fournisseur, pas l'éditeur d'Infinite. L'éditeur ne peut ni les recevoir ni
 les consulter.</p>
 
+<p>Si vous avez créé un compte d'abonnement, l'application vérifie en plus
+votre droit d'accès au démarrage, puis à chaque retour au premier plan : elle
+demande au serveur de l'éditeur quelle formule vous avez, et jusqu'à quand.
+C'est ce qui permet de voir son abonnement changer après un paiement fait
+ailleurs — dans le navigateur du système, ou sur un autre appareil. Vous
+pouvez aussi le demander vous-même, avec le bouton « Vérifier mon
+abonnement » — sur l'écran du compte dans l'application, et sur la page
+d'abonnement du site. Ces demandes ne portent que le
+<strong>jeton de session</strong> — un jeton aléatoire, sans votre mot de
+passe, sans votre adresse électronique, et sans ce que vous regardez.</p>
+
 <h3>4. Ce que l'application garde, sur votre appareil</h3>
 
 <div class="table-scroll">
@@ -110,7 +119,8 @@ les consulter.</p>
     <tr>
       <td><strong>Identifiant et mot de passe</strong> du fournisseur, pour
       chacune de vos listes de lecture</td>
-      <td>Préférences de l'application, sur l'appareil</td>
+      <td>Coffre du système — Trousseau d'Apple, KeyStore d'Android, DPAPI de
+      Windows ; à défaut, préférences de l'application, sur l'appareil</td>
       <td>Éviter de les ressaisir à chaque lancement</td>
       <td>Bouton « Oublier ce compte », à l'écran de connexion — ou la
       suppression de la liste, dans son menu</td>
@@ -127,16 +137,111 @@ les consulter.</p>
       <td>Reprendre au bon endroit</td>
       <td>Onglet Historique → « Effacer l'historique »</td>
     </tr>
+    <tr>
+      <td><strong>Jeton de session</strong> du compte d'abonnement, et le
+      dernier état d'abonnement vérifié</td>
+      <td>Préférences de l'application, sur l'appareil</td>
+      <td>Se reconnecter sans ressaisir le mot de passe, et savoir ce que
+      vous avez le droit d'utiliser</td>
+      <td>Écran « Abonnement » → « Se déconnecter », ou « Supprimer mon
+      compte »</td>
+    </tr>
   </tbody>
 </table>
 </div>
 
-<p>Le mot de passe est stocké <strong>de façon lisible par l'application</strong>.
-Ce n'est pas un oubli : une application qui vit dans votre dossier personnel
-n'est pas une application chiffrée de bout en bout, et l'ignorer reviendrait à
-faire croire à une protection que le code ne fournit pas.</p>
+<p>Le mot de passe est rangé dans le <strong>coffre du système</strong> : le
+Trousseau d'Apple, le KeyStore d'Android, le DPAPI de Windows. Ce n'est pas
+un chiffrement de bout en bout — l'application relit ce qu'elle a écrit, c'est
+nécessaire pour se connecter au fournisseur — mais ce n'est plus un fichier
+en clair dans les préférences, que n'importe quel outil pourrait lire.</p>
 
-<h3>5. La synchronisation, si vous l'activez</h3>
+<p>Sur un appareil où le coffre n'est pas disponible, ou où le système refuse
+d'y écrire, le mot de passe reste dans les préférences de l'application : sur
+l'appareil, lisible par elle, effaçable par le bouton « Oublier ce compte ».
+L'application préfère toujours <strong>un secret mal rangé à un secret
+perdu</strong>.</p>
+
+<p>Le mot de passe du <strong>compte d'abonnement</strong>, lui, n'est pas
+stocké du tout : il n'est jamais écrit sur l'appareil, et il ne l'est pas
+non plus sur le serveur — voir la section 5.</p>
+
+<h3>5. Le compte d'abonnement, si vous en créez un</h3>
+
+<p>L'application est <strong>entière et complète sans compte</strong>. Un
+compte n'est utile que si vous voulez la synchronisation dans le cloud par le
+serveur de l'éditeur. Vous pouvez ne jamais en créer : l'application ne
+parlera alors à aucun serveur de l'éditeur, et cette section ne vous concerne
+pas.</p>
+
+<p>Le compte se crée sur le site, à la page <a
+href="abonnement.html">Abonnement</a>, ou depuis l'application. Il tient
+votre <strong>adresse électronique</strong>, votre <strong>mot de passe
+haché</strong>, et l'<strong>état de votre abonnement</strong> — la formule
+choisie, et la date jusqu'à laquelle elle court. Rien d'autre : ni vos
+chaînes, ni vos films, ni votre historique, ni ce que vous regardez.</p>
+
+<p>Le mot de passe est <strong>haché avant d'être rangé</strong>, avec un sel
+aléatoire : le serveur ne conserve que l'empreinte, et ne peut pas en
+retrouver l'original. Il ne le reçoit jamais en clair — pas même le temps de
+l'envoyer. Si vous l'oubliez, il n'est pas récupérable : il faut en choisir
+un autre.</p>
+
+<p>Le paiement, lui, se fait <strong>auprès de Stripe, sur le site</strong>.
+Votre carte bancaire n'arrive jamais à l'éditeur : Stripe la traite, et
+l'éditeur n'en voit que ce qu'il faut pour savoir quelle formule est
+souscrite. L'application ne contient aucun achat intégré.</p>
+
+<p>Vous pouvez aussi créer ce compte en vous connectant avec
+<strong>Apple</strong>. Dans ce cas, c'est <strong>Apple</strong> qui vérifie
+votre identité : l'application ne reçoit ni votre mot de passe Apple, ni
+l'adresse de votre compte Apple — seulement un <strong>jeton d'identité
+signé</strong>, que le serveur de l'éditeur vérifie lui-même.</p>
+
+<p>Apple peut communiquer votre adresse électronique, <strong>la première
+fois seulement</strong>, et il peut s'agir d'une <strong>adresse de
+relais</strong> (<code>…@privaterelay.appleid.com</code>), qui ne sert
+qu'aux applications d'Apple. Si vous choisissez « Masquer mon adresse » dans
+le dialogue d'Apple, aucun compte ne peut être créé ainsi : il faut alors se
+connecter d'abord avec votre adresse et votre mot de passe, puis relier
+Apple depuis l'écran du compte.</p>
+
+<p>Le serveur conserve alors l'<strong>identifiant Apple</strong> — un
+identifiant opaque, différent de votre adresse — et rien d'autre de chez
+Apple. Il sert à vous reconnaître à la prochaine connexion, et il est effacé
+avec votre compte.</p>
+
+<p>Le dialogue d'Apple a lieu <strong>sur votre appareil</strong>, dans le
+système d'Apple. Le serveur de l'éditeur, lui, se contente d'aller chercher
+les <strong>clés publiques</strong> d'Apple pour vérifier la signature du
+jeton : cette requête ne porte rien de vous.</p>
+
+<p>Le serveur des comptes est exploité par l'éditeur, pour le compte des
+abonnés :</p>
+
+<ul>
+  <li><strong>Qui l'exploite ?</strong>
+  ya5inq, l'éditeur, est aussi l'hébergeur de ces données au sens de la loi :
+  son nom, son adresse et son téléphone sont dans les
+  <a href="mentions-legales.html">mentions légales</a>.</li>
+  <li><strong>Où sont les données ?</strong>
+  Sur un serveur situé en Allemagne, sur des machines de
+  Render Services, Inc.</li>
+  <li><strong>Que peut-on en faire ?</strong>
+  Le serveur tient des comptes et dit qui a un abonnement actif. Il ne
+  fusionne rien, n'interprète rien, n'envoie rien ailleurs, et ne tient
+  <strong>aucun journal d'accès</strong>. Il ne reçoit ni le contenu que
+  vous regardez, ni vos favoris, ni votre historique. Les personnes qui
+  stockent ces données sont : ya5inq et Render Services, Inc. (525 Brannan Street, Ste 300, San Francisco, CA 94107, USA — +1 415-319-8186, legal@render.com).</li>
+</ul>
+
+<p>Vous pouvez supprimer votre compte à tout moment, depuis l'application
+(« Abonnement » → « Supprimer mon compte ») ou depuis le site. Ce geste
+résilie l'abonnement, efface l'adresse électronique, le mot de passe haché,
+l'état de l'abonnement et la clé de synchronisation — et le document
+d'échange que cette clé protégeait, chez le serveur de synchronisation.</p>
+
+<h3>6. La synchronisation, si vous l'activez</h3>
 
 <p>Si vous activez la synchronisation, Infinite écrit <strong>un seul fichier
 JSON</strong> dans le dossier que vous choisissez — un dossier surveillé par
@@ -164,36 +269,65 @@ si vous avez choisi un dossier <strong>réseau</strong> plutôt qu'un dossier
 local — les mêmes informations passent par ce serveur :</p>
 
 <ul>
+  
   <li><strong>Qui l'exploite ?</strong>
-  ya5inq, l'éditeur. Le serveur est exploité pour le compte des
-  utilisateurs ; son hébergeur est nommé dans les
+  ya5inq, l'éditeur, est aussi l'hébergeur de ces données au sens de la loi :
+  son nom, son adresse et son téléphone sont dans les
   <a href="mentions-legales.html">mentions légales</a>.</li>
   <li><strong>Où sont les données ?</strong>
-  <span class="a-completer">[À COMPLÉTER : pays et hébergeur du serveur de synchronisation]</span></li>
+  Sur un serveur situé en Allemagne, sur des machines de
+  Render Services, Inc.</li>
   <li><strong>Que peut-on en faire ?</strong>
   Le serveur ne fait rien d'autre : il **stocke** un document et le
   remplace. Il ne fusionne rien, n'interprète rien, n'envoie rien ailleurs.
   Il conserve **un seul document par clé** — il est remplacé à chaque
   écriture, il n'y a ni journal ni historique — et la clé elle-même n'est
   jamais écrite sur le disque : seul son empreinte SHA-256 sert de nom de
-  fichier. La suppression du document se fait sur le serveur, à la
-  demande : écrivez à yasin.avci@snowpact.com.</li>
+  fichier. La suppression du document est <strong>automatique</strong> : quand
+  le compte est supprimé, le serveur d'abonnement efface le document et
+  <strong>retire la clé</strong> — elle ne peut plus rien ouvrir, plus
+  jamais, et les données ne peuvent pas revenir. Si l'effacement n'a pas pu
+  aboutir, l'application vous le dit : écrivez alors à
+  yasin.avci@snowpact.com.</li>
+  
+  
 </ul>
 
 <p>Si vous n'utilisez pas de serveur de synchronisation, cette section ne vous
 concerne pas : tout se passe entre votre appareil et le dossier que vous avez
 choisi.</p>
 
-<h3>6. Ce que l'éditeur ne reçoit pas</h3>
+<h3>7. Ce que l'éditeur ne reçoit pas</h3>
 
-<p>L'éditeur de l'application ne reçoit ni votre compte, ni votre historique,
-ni votre adresse IP, ni aucune mesure d'usage. Il ne peut pas les recevoir :
-l'application ne les lui envoie pas.</p>
+<p>L'éditeur de l'application ne reçoit ni votre compte chez un fournisseur,
+ni votre historique, ni vos favoris, ni votre adresse IP, ni aucune mesure
+d'usage. Il ne peut pas les recevoir : l'application ne les lui envoie pas.</p>
+
+<p>La seule exception est le <strong>compte d'abonnement</strong>, décrit dans
+la section 5 : l'éditeur y tient votre adresse électronique, votre mot de
+passe haché et l'état de votre abonnement. Il ne tient ni votre carte
+bancaire, ni ce que vous regardez, ni le compte que vous avez chez votre
+fournisseur.</p>
 
 <p>Aucun code n'est téléchargé à l'exécution : les codecs sont embarqués dans
 l'application.</p>
 
-<h3>7. Vos droits</h3>
+<h3>8. La vérification des mises à jour</h3>
+
+<p>Si vous demandez à l'application de vérifier les mises à jour — le bouton
+est dans l'écran « À propos » — elle lit un fichier public sur ce site, pour
+savoir quelle version est publiée. C'est la seule requête qu'elle fasse en
+dehors du fournisseur de streaming et du serveur d'abonnement, et elle n'a
+lieu <strong>que si vous la demandez</strong> : rien ne part de votre
+appareil sans que vous l'ayez déclenché.</p>
+
+<p>Cette requête ne transmet ni votre compte, ni votre mot de passe, ni votre
+historique, ni vos favoris. Le serveur qui sert ce fichier voit l'adresse IP
+de la requête, comme il verrait celle de n'importe quelle page consultée ;
+l'éditeur n'en conserve aucune trace, et n'a aucun moyen de relier cette
+adresse à votre compte.</p>
+
+<h3>9. Vos droits</h3>
 
 <p>Vous pouvez à tout moment :</p>
 
@@ -202,16 +336,22 @@ l'application.</p>
   <li>oublier le compte (écran de connexion → « Oublier ce compte ») ;</li>
   <li>supprimer le fichier de synchronisation (dans le dossier que vous avez
   choisi) ;</li>
+  <li>supprimer votre compte d'abonnement (écran « Abonnement », ou page
+  <a href="abonnement.html">Abonnement</a> du site) ;</li>
   <li>désinstaller l'application.</li>
 </ul>
 
 <p>Ces gestes suffisent à effacer les données : l'application n'en conserve
 aucune autre copie.</p>
 
-<p>L'application <strong>n'héberge pas de compte utilisateur</strong> : il
-n'y a donc aucun profil à supprimer de notre côté. Le compte que vous
-utilisez est celui d'un fournisseur, et c'est auprès de lui que se fait toute
-demande le concernant.</p>
+<p>L'application <strong>n'héberge pas de compte de fournisseur</strong> : le
+compte que vous utilisez chez votre fournisseur est le vôtre, et c'est
+auprès de lui que se fait toute demande le concernant. En revanche, si vous
+avez créé un <strong>compte d'abonnement</strong>, l'éditeur en est le
+responsable de traitement, et il en répond : il tient votre adresse
+électronique, votre mot de passe haché et l'état de votre abonnement. Vous
+pouvez en demander la suppression, le rectifier, ou en obtenir une copie, en
+écrivant à yasin.avci@snowpact.com.</p>
 
 <p>Vos droits vous appartiennent : pour toute question sur vos données,
 écrivez à yasin.avci@snowpact.com.
@@ -220,20 +360,32 @@ Fontenoy, TSA 80715, 75334 Paris Cedex 07 —
 <a href="https://www.cnil.fr/fr/plaintes">https://www.cnil.fr/fr/plaintes</a>)
 ou de l'autorité de contrôle de votre pays de résidence.</p>
 
-<h3>8. Durée de conservation</h3>
+<h3>10. Durée de conservation</h3>
 
 <p>Les données stockées sur l'appareil sont conservées <strong>jusqu'à ce que
 vous les effaciez</strong>, ou jusqu'à la désinstallation de l'application, sans
 quoi. Les données qui transitent par un serveur de synchronisation sont
 conservées selon la politique de ce serveur, que son exploitant doit préciser.</p>
 
-<h3>9. Mineurs</h3>
+<p>Les données d'un <strong>compte d'abonnement</strong> — adresse
+électronique, mot de passe haché, état de l'abonnement, clé de
+synchronisation — sont conservées jusqu'à la suppression du compte, que vous
+pouvez faire à tout moment. Elles sont supprimées sans délai après. Les
+sessions ouvertes expirent d'elles-mêmes au bout de quatre-vingt-dix
+jours.</p>
+
+<h3>11. Mineurs</h3>
 
 <p>L'application ne héberge pas de catalogue et ne propose aucun contenu : elle
 lit ce que l'utilisateur lui demande de lire. Si vous êtes mineur et que vous
 avez besoin d'un compte, le fournisseur de streaming que vous utilisez est
 responsable de ses propres conditions d'accès. L'éditeur d'Infinite n'a aucune
 connaissance des comptes des utilisateurs et n'en tient aucun registre.</p>
+
+<p>Un compte d'abonnement est un compte de l'éditeur : il est soumis aux mêmes
+règles que les autres, et l'éditeur doit pouvoir écrire à son titulaire. Un
+abonnement souscrit par un mineur est résiliable comme les autres, sans
+justification.</p>
 
 <hr>
 
@@ -243,7 +395,7 @@ connaissance des comptes des utilisateurs et n'en tient aucun registre.</p>
 
 <p lang="en">Infinite Media Player is published by
 <strong>ya5inq</strong>, an independent publisher
-— <span class="a-completer">[À COMPLÉTER : postal address of the publisher]</span>.</p>
+— 12 Terrasses de la Ravinière, 95520 Osny, France.</p>
 
 <p lang="en">The publisher operates under their own name: there is no
 company, no share capital, no company registration number and no VAT
@@ -278,8 +430,13 @@ its own: it plays what the user asks it to play, from the <strong>provider the
 user has chosen</strong> and entered themselves.</p>
 
 <p lang="en">The application <strong>collects nothing, measures nothing, and
-sends nothing to its publisher</strong>. There is no telemetry, no tracker, no
-analytics SDK, no advertising, and no automatic crash reporting.</p>
+sends nothing to its publisher</strong> — as long as you have not created a
+subscription account. There is no telemetry, no tracker, no analytics SDK, no
+advertising, and no automatic crash reporting.</p>
+
+<p lang="en">If you create a subscription account, the application does talk to
+the publisher's server: that is the only exception to the rule, and section 5
+says exactly what travels, what is kept, and for how long.</p>
 
 <h3 lang="en">3. What the app sends</h3>
 
@@ -294,6 +451,12 @@ from your device to the provider's server, at the address you entered.</p>
 <p lang="en"><strong>The data controller</strong> for those credentials is
 therefore the provider, not Infinite's publisher. The publisher can neither
 receive nor consult them.</p>
+
+<p lang="en">If you have created a subscription account, the application also
+checks your access rights at launch: it asks the publisher's server which plan
+you are on, and until when. That request carries nothing but the
+<strong>session token</strong> — a random token, without your password, without
+your email address, and without anything you watch.</p>
 
 <h3 lang="en">4. What the app keeps, on your device</h3>
 
@@ -324,6 +487,14 @@ receive nor consult them.</p>
       <td>So you can pick up where you left off</td>
       <td>History tab → « Effacer l'historique » / "Clear history"</td>
     </tr>
+    <tr>
+      <td><strong>Session token</strong> of the subscription account, and the
+      last verified subscription state</td>
+      <td>App preferences, on the device</td>
+      <td>So you can reconnect without retyping your password, and know what
+      you are entitled to use</td>
+      <td>« Abonnement » screen → "Sign out", or "Delete my account"</td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -333,7 +504,60 @@ read</strong>. This is not an oversight: an app that lives in your own folder
 is not end-to-end encrypted, and claiming otherwise would advertise a
 protection the code does not provide.</p>
 
-<h3 lang="en">5. Synchronization, if you turn it on</h3>
+<p lang="en">The password of the <strong>subscription account</strong>, on the
+other hand, is not stored at all: it is never written on the device, and
+neither is it on the server — see section 5.</p>
+
+<h3 lang="en">5. The subscription account, if you create one</h3>
+
+<p lang="en">The application is <strong>whole and complete without an
+account</strong>. An account is only useful if you want synchronization in the
+cloud through the publisher's server. You may never create one: the
+application will then talk to no publisher server at all, and this section
+does not concern you.</p>
+
+<p lang="en">The account is created on the site, on the
+<a href="abonnement.html">Subscription</a> page, or from the application. It
+holds your <strong>email address</strong>, your <strong>hashed
+password</strong>, and the <strong>state of your subscription</strong> — the
+plan you chose, and the date it runs until. Nothing else: not your channels,
+not your films, not your history, not what you watch.</p>
+
+<p lang="en">The password is <strong>hashed before it is stored</strong>, with
+a random salt: the server only keeps the fingerprint, and cannot recover the
+original. It never receives it in clear — not even in transit. If you forget
+it, it cannot be recovered: you have to choose another one.</p>
+
+<p lang="en">Payment itself happens <strong>with Stripe, on the site</strong>.
+Your bank card never reaches the publisher: Stripe handles it, and the
+publisher only sees what is needed to know which plan is subscribed. The
+application contains no in-app purchase.</p>
+
+<p lang="en">The account server is operated by the publisher, on behalf of the
+subscribers:</p>
+
+<ul lang="en">
+  <li><strong>Who operates it?</strong>
+  ya5inq, the publisher, is also the host of this data under the law: their
+  name, address and phone number are in the
+  <a href="mentions-legales.html">legal notices</a>.</li>
+  <li><strong>Where is the data?</strong>
+  On a server located in Germany, on machines provided by
+  Render Services, Inc.</li>
+  <li><strong>What happens to it?</strong>
+  The server holds accounts and says who has an active subscription. It
+  merges nothing, interprets nothing, sends nothing anywhere, and keeps
+  <strong>no access log</strong>. It receives neither the content you watch,
+  nor your favourites, nor your history. The persons storing this data are:
+  ya5inq and Render Services, Inc. (525 Brannan Street, Ste 300, San Francisco, CA 94107, USA — +1 415-319-8186, legal@render.com).</li>
+</ul>
+
+<p lang="en">You can delete your account at any time, from the application
+("Abonnement" → "Delete my account") or from the site. That gesture cancels
+the subscription and erases the email address, the hashed password, the
+subscription state and the synchronization key.</p>
+
+<h3 lang="en">6. Synchronization, if you turn it on</h3>
 
 <p lang="en">If you enable synchronization, Infinite writes <strong>a single
 JSON file</strong> into the folder you choose — typically a folder synced by
@@ -361,12 +585,14 @@ you picked a <strong>network</strong> folder rather than a local one — the sam
 information passes through that server:</p>
 
 <ul lang="en">
+  
   <li><strong>Who operates it?</strong>
-  ya5inq, the publisher. The server is operated on behalf of the users;
-  its host is named in the <a href="mentions-legales.html">legal
-  notices</a>.</li>
+  ya5inq, the publisher, is also the host of this data under the law: their
+  name, address and phone number are in the
+  <a href="mentions-legales.html">legal notices</a>.</li>
   <li><strong>Where is the data?</strong>
-  <span class="a-completer">[TO BE COMPLETED: country and host of the synchronization server]</span></li>
+  On a server located in Germany, on machines provided by
+  Render Services, Inc.</li>
   <li><strong>What happens to it?</strong>
   The server does nothing else: it <strong>stores</strong> one document and
   replaces it. It merges nothing, interprets nothing, and sends nothing
@@ -375,21 +601,43 @@ information passes through that server:</p>
   itself is never written to disk: only its SHA-256 fingerprint is used as
   the file name. The document is deleted on the server on request: write to
   yasin.avci@snowpact.com.</li>
+  
+  
 </ul>
 
 <p lang="en">If you do not use a synchronization server, this section does not
 concern you: everything happens between your device and the folder you chose.</p>
 
-<h3 lang="en">6. What the publisher does not receive</h3>
+<h3 lang="en">7. What the publisher does not receive</h3>
 
-<p lang="en">The publisher receives neither your account, nor your history, nor
-your IP address, nor any usage measurement. They cannot receive them: the
-application does not send them.</p>
+<p lang="en">The publisher receives neither your account with a provider, nor
+your history, nor your favourites, nor your IP address, nor any usage
+measurement. They cannot receive them: the application does not send them.</p>
+
+<p lang="en">The only exception is the <strong>subscription account</strong>,
+described in section 5: the publisher holds your email address, your hashed
+password and the state of your subscription. It holds neither your bank card,
+nor what you watch, nor the account you have with your provider.</p>
 
 <p lang="en">No code is downloaded at runtime: the codecs are bundled with the
 application.</p>
 
-<h3 lang="en">7. Your rights</h3>
+<h3 lang="en">8. Checking for updates</h3>
+
+<p lang="en">If you ask the application to check for updates — the button is
+in the « About » screen — it reads a public file on this site, to learn
+which version is published. It is the only request the application makes
+apart from the ones to your streaming provider and the subscription server,
+and it happens <strong>only if you ask for it</strong>: nothing leaves your
+device unless you triggered it.</p>
+
+<p lang="en">That request carries neither your account, nor your password,
+nor your history, nor your favourites. The server that serves the file
+sees the IP address of the request, as it would see that of any page you
+read; the publisher keeps no trace of it, and has no way to link it to your
+account.</p>
+
+<h3 lang="en">9. Your rights</h3>
 
 <p lang="en">At any time you can:</p>
 
@@ -399,15 +647,22 @@ application.</p>
   <li>forget the account (sign-in screen → « Oublier ce compte » / "Forget this
   account");</li>
   <li>delete the synchronization file (in the folder you chose);</li>
+  <li>delete your subscription account ("Abonnement" screen, or the
+  <a href="abonnement.html">Subscription</a> page of the site);</li>
   <li>uninstall the application.</li>
 </ul>
 
 <p lang="en">Those gestures are enough to erase the data: the application keeps
 no other copy.</p>
 
-<p lang="en">The application <strong>hosts no user account</strong>: there is
-therefore no profile to delete on our side. The account you use belongs to a
-provider, and any request concerning it must be addressed to that provider.</p>
+<p lang="en">The application <strong>hosts no provider account</strong>: the
+account you use with your provider is yours, and any request concerning it
+must be addressed to that provider. If you have created a
+<strong>subscription account</strong>, on the other hand, the publisher is the
+data controller for it and answers for it: it holds your email address, your
+hashed password and the state of your subscription. You can ask for its
+deletion, for it to be rectified, or for a copy of it, by writing to
+yasin.avci@snowpact.com.</p>
 
 <p lang="en">Your rights are yours: for any question about your data, write to
 yasin.avci@snowpact.com. You may also
@@ -416,20 +671,31 @@ Cedex 07 —
 <a href="https://www.cnil.fr/en/whats-on/data-protection">https://www.cnil.fr/en/whats-on/data-protection</a>)
 or with the supervisory authority in your country of residence.</p>
 
-<h3 lang="en">8. Retention</h3>
+<h3 lang="en">10. Retention</h3>
 
 <p lang="en">Data stored on the device is kept <strong>until you erase it</strong>,
 or until you uninstall the application, whichever comes first. Data that passes
 through a synchronization server is kept according to that server's policy,
 which its operator must state.</p>
 
-<h3 lang="en">9. Minors</h3>
+<p lang="en">The data of a <strong>subscription account</strong> — email
+address, hashed password, subscription state, synchronization key — is kept
+until the account is deleted, which you may do at any time. It is erased
+without delay afterwards. Open sessions expire on their own after ninety
+days.</p>
+
+<h3 lang="en">11. Minors</h3>
 
 <p lang="en">The application hosts no catalogue and offers no content: it plays
 what the user asks it to play. If you are a minor and need an account, the
 streaming provider you use is responsible for its own access conditions.
 Infinite's publisher has no knowledge of users' accounts and keeps no register
 of them.</p>
+
+<p lang="en">A subscription account is an account with the publisher: it is
+subject to the same rules as the others, and the publisher must be able to
+write to whoever holds it. A subscription taken out by a minor can be
+cancelled like any other, without justification.</p>
 
 <hr>
 
@@ -439,19 +705,23 @@ of them.</p>
 
 <ul>
   <li>Il n'y a <strong>pas</strong> de « cookies » : l'application n'en pose
-  aucun, et n'en lit aucun.</li>
+  aucun, et n'en lit aucun. La page d'abonnement non plus : elle garde le
+  jeton de session dans la mémoire de l'onglet, et il disparaît à la
+  fermeture.</li>
   <li>Il n'y a <strong>pas</strong> de « SDK publicitaire », de « SDK
   d'analyse », ni de « rapports de plantage » : aucun n'est embarqué. C'est
   contrôlable dans le binaire, pas seulement affirmatif.</li>
-  <li>Il n'y a <strong>pas</strong> de « transfert international de données »
-  par l'éditeur : l'éditeur ne reçoit rien. En revanche, <strong>votre compte
-  est transmis au fournisseur que vous avez choisi</strong>, qui peut être
-  établi n'importe où — c'est inhérent au fonctionnement d'un lecteur IPTV, et
-  c'est pourquoi l'application affiche cette information dans son écran
-  « Confidentialité » <strong>avant</strong> que vous ne saisissiez quoi que
-  ce soit.</li>
   <li>Il n'y a <strong>pas</strong> de « décision automatisée » : l'application
   ne prend aucune décision à votre place.</li>
+  <li>Il y a en revanche <strong>deux transferts hors de votre appareil</strong>,
+  et ils sont dits : <strong>votre compte est transmis au fournisseur que vous
+  avez choisi</strong>, qui peut être établi n'importe où — c'est inhérent au
+  fonctionnement d'un lecteur IPTV, et c'est pourquoi l'application affiche
+  cette information dans son écran « Confidentialité » <strong>avant</strong>
+  que vous ne saisissiez quoi que ce soit ; et, si vous vous abonnez,
+  <strong>vos données de compte vont chez l'hébergeur du serveur
+  d'abonnement</strong>, dont le pays est nommé ci-dessus. Le paiement, lui,
+  va chez Stripe, qui est établi aux États-Unis.</li>
 </ul>
 
 <p>Pour la version anglaise de cette politique, voir plus haut. La politique
@@ -463,7 +733,7 @@ reste accessible depuis l'application, dans son écran « Confidentialité ».</
   <div class="wrap">
     <p>Éditeur : ya5inq</p>
     <p>Contact : yasin.avci@snowpact.com</p>
-    <p>© 2026 Infinite Media Player — <a href="mentions-legales.html">mentions légales</a> · <a href="confidentialite.html">confidentialité</a> · <a href="conditions.html">conditions</a> · <a href="source.html">source</a> · <a href="licences.html">licences</a> · <a href="support.html">support</a> · <a href="telecharger.html">téléchargement</a></p>
+    <p>© 2026 Infinite Media Player — <a href="mentions-legales.html">mentions légales</a> · <a href="confidentialite.html">confidentialité</a> · <a href="conditions.html">conditions</a> · <a href="source.html">source</a> · <a href="licences.html">licences</a> · <a href="support.html">support</a> · <a href="abonnement.html">abonnement</a> · <a href="telecharger.html">téléchargement</a></p>
   </div>
 </footer>
 
