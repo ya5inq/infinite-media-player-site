@@ -1,0 +1,57 @@
+{
+  "_commentaire": [
+    "Le catalogue des formules — la seule liste de prix du projet.",
+    "",
+    "Ce fichier est lu par trois personnes :",
+    "",
+    "  - le site, qui affiche les formules au visiteur ;",
+    "  - le serveur d'abonnement, qui facture le prix qu'il annonce ;",
+    "  - l'application, qui montre les formules sur l'écran d'abonnement.",
+    "",
+    "Il est donc écrit **une seule fois**. Deux listes de prix, ce serait",
+    "deux occasions de diverger — et une divergence de prix est une",
+    "réclamation, pas un détail.",
+    "",
+    "« serveur » est l'adresse du serveur d'abonnement. Elle est vide tant",
+    "que le serveur n'est pas déployé : la page le dit, et refuse d'afficher",
+    "un formulaire qui ne pourrait rien faire. Elle ne contient aucun",
+    "secret — c'est une adresse publique, comme celle du site."
+  ],
+
+  "serveur": "",
+
+  "formules": [
+    {
+      "id": "mensuel",
+      "nom": "Mensuel",
+      "prix": 4.9,
+      "devise": "EUR",
+      "periode": "mois",
+      "joursEssai": 0,
+      "resume": "L'abonnement mensuel, sans engagement.",
+      "points": [
+        "La synchronisation entre vos appareils, par le serveur de l'éditeur",
+        "Un compte, valable sur votre téléphone, votre tablette, votre Mac et votre télévision",
+        "Sans publicité, sans traceur, sans mesure d'audience",
+        "Résiliable à tout moment, en un clic"
+      ]
+    },
+    {
+      "id": "annuel",
+      "nom": "Annuel",
+      "prix": 39.0,
+      "devise": "EUR",
+      "periode": "anne",
+      "joursEssai": 0,
+      "resume": "L'abonnement annuel — deux mois offerts.",
+      "points": [
+        "Tout ce que contient l'abonnement mensuel",
+        "Deux mois offerts sur l'année",
+        "La synchronisation entre vos appareils, par le serveur de l'éditeur",
+        "Un compte, valable sur votre téléphone, votre tablette, votre Mac et votre télévision",
+        "Sans publicité, sans traceur, sans mesure d'audience",
+        "Résiliable à tout moment, en un clic"
+      ]
+    }
+  ]
+}

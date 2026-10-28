@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abonnement — Infinite Media Player</title>
+<meta name="description" content="Les formules d'abonnement d'Infinite Media Player — le prix, ce qu'elles débloquent, et le compte qui porte votre droit d'accès sur tous vos appareils.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="site-name"><a href="index.html">Infinite Media Player</a></p>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="confidentialite.html">Confidentialité</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="conditions.html">Conditions</a></li>
+        <li><a href="source.html">Source</a></li>
+        <li><a href="licences.html">Licences</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="abonnement.html" aria-current="page">Abonnement</a></li>
+        <li><a href="telecharger.html">Télécharger</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<h1>Abonnement</h1>
+
+<p>Infinite Media Player reste gratuit : l'application lit ce que vous lui
+demandez de lire, auprès du fournisseur que vous avez choisi. Rien n'est
+enlevé, et rien n'estbridé.</p>
+
+<p>L'abonnement ajoute ce qui ne peut pas tenir sur l'appareil seul : **un
+compte qui vous suit**, et la synchronisation entre vos appareils par le
+serveur de l'éditeur. Le lecteur, lui, ne change pas.</p>
+
+<div class="note">
+  <span class="note-title">Le paiement se fait ici, jamais dans l'application</span>
+  <p>Vous payez sur ce site, auprès de Stripe. L'application ne voit jamais
+  votre carte, ne contient aucun achat intégré, et ne peut pas vous facturer.
+  Elle se contente de vérifier votre compte.</p>
+</div>
+
+<h2>Les formules</h2>
+
+<div id="formules" class="cartes">
+  <p class="sans-marge">Chargement des formules…</p>
+</div>
+
+<h2>Votre compte</h2>
+
+<p id="intro-compte">Un compte, une adresse électronique, un mot de passe.
+C'est ce qui porte votre droit d'accès : il vaut sur votre téléphone, votre
+tablette, votre Mac et votre télévision, sans que vous ayez à le_activer
+à chaque fois.</p>
+
+<div id="zone-non-connecte">
+  <h3>Créer un compte</h3>
+
+  <form id="formulaire-creation" class="formulaire" autocomplete="off">
+    <label class="champ">
+      <span>Adresse électronique</span>
+      <input type="email" id="creation-email" name="email" required
+             autocomplete="email" inputmode="email">
+    </label>
+    <label class="champ">
+      <span>Mot de passe</span>
+      <input type="password" id="creation-motdepasse" name="motdepasse" required
+             minlength="8" autocomplete="new-password">
+    </label>
+    <label class="champ">
+      <span>Le mot de passe, encore</span>
+      <input type="password" id="creation-confirmation" name="confirmation"
+             required minlength="8" autocomplete="new-password">
+    </label>
+    <button type="submit" class="bouton">Créer mon compte</button>
+  </form>
+
+  <h3>J'ai déjà un compte</h3>
+
+  <form id="formulaire-connexion" class="formulaire" autocomplete="off">
+    <label class="champ">
+      <span>Adresse électronique</span>
+      <input type="email" id="connexion-email" name="email" required
+             autocomplete="email" inputmode="email">
+    </label>
+    <label class="champ">
+      <span>Mot de passe</span>
+      <input type="password" id="connexion-motdepasse" name="motdepasse" required
+             autocomplete="current-password">
+    </label>
+    <button type="submit" class="bouton secondaire">Se connecter</button>
+  </form>
+</div>
+
+<div id="zone-connecte" hidden>
+  <p>Connecté en tant que <strong id="adresse-compte"></strong>.</p>
+
+  <p id="etat-abonnement"></p>
+
+  <p id="actions-abonnement">
+    <button type="button" id="bouton-portail" class="bouton secondaire">
+      Gérer mon abonnement</button>
+    <button type="button" id="bouton-deconnexion" class="bouton secondaire">
+      Se déconnecter</button>
+  </p>
+
+  <p id="zone-suppression" hidden>
+    <button type="button" id="bouton-suppression" class="bouton secondaire">
+      Supprimer mon compte</button>
+  </p>
+</div>
+
+<p id="message" class="message"></p>
+
+<div class="note">
+  <span class="note-title">Ce que cette page conserve</span>
+  <p>Ni cookie, ni traceur, ni script d'analyse, ni publicité. Le seul
+  stockage est le jeton de votre session, dans la mémoire de cet onglet —
+  il disparaît à la fermeture de l'onglet. Vos demandes sont envoyées au
+  serveur de l'éditeur, qui reçoit votre adresse IP comme le ferait
+  n'importe quel site web ; il ne tient aucun journal d'accès, et il
+  n'envoie aucun courriel.</p>
+</div>
+
+<h2>Ce que l'abonnement ne change pas</h2>
+
+<ul>
+  <li>Le lecteur ne collecte toujours rien : ni télémétrie, ni mesure
+  d'audience, ni historique transmis à l'éditeur. La
+  <a href="confidentialite.html">politique de confidentialité</a> le dit en
+  détail — et elle a été revue pour tenir compte du compte.</li>
+  <li>L'application ne contient aucun achat intégré : le paiement se fait
+  ici, sur ce site.</li>
+  <li>Votre mot de passe n'est jamais transmis en clair à l'éditeur : il
+  est salé et haché avant d'être rangé.</li>
+  <li>Les <a href="conditions.html">conditions d'utilisation</a> s'appliquent
+  aux formules comme au reste de l'application.</li>
+</ul>
+
+<h2>Résilier</h2>
+
+<p>Sans justification, en un clic, depuis « Gérer mon abonnement ». Vous
+gardez l'accès jusqu'à la fin de la période déjà payée. La suppression
+définitive du compte se fait au même endroit — elle efface l'adresse
+électronique, le mot de passe et l'état de l'abonnement.</p>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Éditeur : ya5inq</p>
+    <p>Contact : yasin.avci@snowpact.com</p>
+    <p>© 2026 Infinite Media Player — <a href="mentions-legales.html">mentions légales</a> · <a href="confidentialite.html">confidentialité</a> · <a href="conditions.html">conditions</a> · <a href="source.html">source</a> · <a href="licences.html">licences</a> · <a href="support.html">support</a> · <a href="abonnement.html">abonnement</a> · <a href="telecharger.html">téléchargement</a></p>
+  </div>
+</footer>
+
+<script>
+<!--
+  La page d'abonnement — le seul script du site.
+
+  Il fait deux choses : il montre les formules, et il parle au serveur
+  d'abonnement. Il n'y a **ni cookie, ni traceur, ni bibliothèque
+  extérieure** : le jeton de session est gardé dans la mémoire de l'onglet
+  (`sessionStorage`), et il disparaît à la fermeture de l'onglet.
+
+  L'adresse du serveur n'est pas écrite dans le script : elle est lue dans
+  `abonnement.json`, le même fichier que celui qui donne les prix. Il n'y a
+  donc qu'une seule source de vérité.
+-->
+(function () {
+  'use strict';
+
+  var config = { serveur: '', formules: [] };
+  var jeton = null;
+
+  function el(id) { return document.getElementById(id); }
+
+  function dire(texte, classe) {
+    var m = el('message');
+    m.textContent = texte || '';
+    m.className = 'message' + (classe ? ' ' + classe : '');
+  }
+
+  /* Une demande au serveur d'abonnement. */
+  function api(chemin, options) {
+    options = options || {};
+    var entetes = { 'Content-Type': 'application/json' };
+    if (options.jeton) entetes.Authorization = 'Bearer ' + options.jeton;
+    return fetch(config.serveur + chemin, {
+      method: options.methode || 'GET',
+      headers: entetes,
+      // Aucun cookie n'est envoyé, et aucun n'est demandé : la session
+      // tient dans l'en-tête, et dans rien d'autre.
+      credentials: 'omit',
+      cache: 'no-store',
+      body: options.corps ? JSON.stringify(options.corps) : undefined
+    }).then(function (reponse) {
+      return reponse.text().then(function (texte) {
+        var json = null;
+        try { json = JSON.parse(texte); } catch (_) { json = null; }
+        return { ok: reponse.ok, statut: reponse.status, json: json };
+      });
+    });
+  }
+
+  function erreur(r) {
+    if (r && r.json && r.json.error) return r.json.error;
+    if (r && r.statut === 0) return 'le serveur ne répond pas.';
+    return 'la demande a échoué.';
+  }
+
+  /* Le prix, écrit comme on l'écrit : 4,90 EUR.
+   *
+   * Le même nombre que dans l'application : la formule porte deux décimales,
+   * et la virgule — c'est ce qu'on lit partout en France. */
+  function ecrirePrix(valeur, devise) {
+    var nombre = Number(valeur) || 0;
+    var entier = Math.floor(nombre);
+    var centimes = Math.round((nombre - entier) * 100);
+    if (centimes === 100) { entier += 1; centimes = 0; }
+    var texte = String(centimes);
+    if (texte.length < 2) texte = '0' + texte;
+    return entier + ',' + texte + ' ' + (devise || 'EUR');
+  }
+
+  /* ── Les formules ────────────────────────────────────────────────────── */
+
+  function rendreFormules() {
+    var boite = el('formules');
+    boite.textContent = '';
+    if (!config.formules.length) {
+      boite.textContent = 'Les formules ne sont pas encore publiées.';
+      return;
+    }
+    config.formules.forEach(function (f) {
+      var carte = document.createElement('div');
+      carte.className = 'carte';
+
+      var titre = document.createElement('h3');
+      titre.textContent = f.nom;
+      carte.appendChild(titre);
+
+      var prix = document.createElement('p');
+      prix.className = 'prix';
+      prix.textContent = ecrirePrix(f.prix, f.devise);
+      carte.appendChild(prix);
+
+      var periode = document.createElement('p');
+      periode.className = 'periode';
+      periode.textContent = f.periode === 'anne' ? 'par an' : 'par mois';
+      carte.appendChild(periode);
+
+      if (f.resume) {
+        var resume = document.createElement('p');
+        resume.textContent = f.resume;
+        carte.appendChild(resume);
+      }
+
+      var liste = document.createElement('ul');
+      (f.points || []).forEach(function (p) {
+        var li = document.createElement('li');
+        li.textContent = p;
+        liste.appendChild(li);
+      });
+      carte.appendChild(liste);
+
+      var bouton = document.createElement('button');
+      bouton.type = 'button';
+      bouton.className = 'bouton';
+      bouton.textContent = 'Choisir ' + f.nom.toLowerCase();
+      bouton.setAttribute('data-formule', f.id);
+      bouton.addEventListener('click', function () { payer(f.id); });
+      carte.appendChild(bouton);
+
+      boite.appendChild(carte);
+    });
+  }
+
+  /* ── Le compte ───────────────────────────────────────────────────────── */
+
+  function garderJeton(valeur) {
+    jeton = valeur;
+    try {
+      if (valeur) window.sessionStorage.setItem('infinite.abonnement.jeton', valeur);
+      else window.sessionStorage.removeItem('infinite.abonnement.jeton');
+    } catch (_) {
+      // Un navigateur qui refuse le stockage de session n'est pas un
+      // navigateur qu'on refuse : la page marche, sans garder le jeton.
+    }
+  }
+
+  function relireJeton() {
+    try {
+      return window.sessionStorage.getItem('infinite.abonnement.jeton');
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function afficherEtat(abonnement) {
+    var zone = el('zone-connecte');
+    var intro = el('intro-compte');
+    zone.hidden = false;
+    el('zone-non-connecte').hidden = true;
+    intro.hidden = true;
+
+    el('adresse-compte').textContent = abonnement.email || '';
+
+    var etat = el('etat-abonnement');
+    if (abonnement.actif) {
+      var nom = '';
+      config.formules.forEach(function (f) {
+        if (f.id === abonnement.formule) nom = f.nom;
+      });
+      etat.textContent = 'Abonnement actif' + (nom ? ' — formule ' + nom : '') +
+        (abonnement.expireLe
+          ? ', jusqu\'au ' + new Date(abonnement.expireLe).toLocaleDateString('fr-FR')
+          : '') + '.';
+      el('zone-suppression').hidden = false;
+    } else {
+      etat.textContent = 'Aucun abonnement actif. Choisissez une formule ci-dessus.';
+    }
+  }
+
+  function afficherDeconnexion() {
+    el('zone-connecte').hidden = true;
+    el('zone-non-connecte').hidden = false;
+    el('intro-compte').hidden = false;
+    el('etat-abonnement').textContent = '';
+    el('adresse-compte').textContent = '';
+    el('zone-suppression').hidden = true;
+  }
+
+  /* ── Les gestes ──────────────────────────────────────────────────────── */
+
+  function payer(formuleId) {
+    if (!jeton) {
+      dire('Connectez-vous d\'abord, ou créez un compte.', 'erreur');
+      return;
+    }
+    dire('Préparation du paiement…');
+    api('/abonnement/paiement', {
+      methode: 'POST',
+      jeton: jeton,
+      corps: { formule: formuleId }
+    }).then(function (r) {
+      if (!r.ok) {
+        dire(erreur(r), 'erreur');
+        return;
+      }
+      window.location.href = r.json.url;
+    }).catch(function () {
+      dire('le serveur ne répond pas.', 'erreur');
+    });
+  }
+
+  function creerCompte(evenement) {
+    evenement.preventDefault();
+    var email = el('creation-email').value.trim();
+    var motDePasse = el('creation-motdepasse').value;
+    var confirmation = el('creation-confirmation').value;
+
+    if (motDePasse !== confirmation) {
+      dire('Les deux mots de passe ne sont pas les mêmes.', 'erreur');
+      return;
+    }
+    if (motDePasse.length < 8) {
+      dire('Le mot de passe doit avoir au moins huit caractères.', 'erreur');
+      return;
+    }
+
+    dire('Création du compte…');
+    api('/abonnement/compte', {
+      methode: 'POST',
+      corps: { email: email, motDePasse: motDePasse }
+    }).then(function (r) {
+      if (!r.ok) {
+        dire(erreur(r), 'erreur');
+        return;
+      }
+      garderJeton(r.json.jeton);
+      afficherEtat(r.json.abonnement);
+      dire('Le compte est créé. Choisissez une formule.', 'reussi');
+    }).catch(function () {
+      dire('le serveur ne répond pas.', 'erreur');
+    });
+  }
+
+  function seConnecter(evenement) {
+    evenement.preventDefault();
+    var email = el('connexion-email').value.trim();
+    var motDePasse = el('connexion-motdepasse').value;
+
+    dire('Connexion…');
+    api('/abonnement/connexion', {
+      methode: 'POST',
+      corps: { email: email, motDePasse: motDePasse }
+    }).then(function (r) {
+      if (!r.ok) {
+        dire(erreur(r), 'erreur');
+        return;
+      }
+      garderJeton(r.json.jeton);
+      afficherEtat(r.json.abonnement);
+      dire('Connecté.', 'reussi');
+    }).catch(function () {
+      dire('le serveur ne répond pas.', 'erreur');
+    });
+  }
+
+  function seDeconnecter() {
+    api('/abonnement/deconnexion', { methode: 'POST', jeton: jeton })
+      .then(function () {
+        garderJeton(null);
+        afficherDeconnexion();
+        dire('Vous êtes déconnecté.', 'reussi');
+      })
+      .catch(function () {
+        garderJeton(null);
+        afficherDeconnexion();
+      });
+  }
+
+  function supprimerCompte() {
+    if (!window.confirm(
+      'Supprimer définitivement le compte ? L\'abonnement est résilié, ' +
+      'et vos données sont effacées. Cette action est irréversible.')) {
+      return;
+    }
+    api('/abonnement/compte', { methode: 'DELETE', jeton: jeton })
+      .then(function (r) {
+        if (!r.ok) {
+          dire(erreur(r), 'erreur');
+          return;
+        }
+        garderJeton(null);
+        afficherDeconnexion();
+        dire('Le compte est supprimé.', 'reussi');
+      })
+      .catch(function () {
+        dire('le serveur ne répond pas.', 'erreur');
+      });
+  }
+
+  function ouvrirPortail() {
+    dire('Ouverture de la gestion de l\'abonnement…');
+    api('/abonnement/portail', { methode: 'POST', jeton: jeton })
+      .then(function (r) {
+        if (!r.ok) {
+          dire(erreur(r), 'erreur');
+          return;
+        }
+        window.location.href = r.json.url;
+      })
+      .catch(function () {
+        dire('le serveur ne répond pas.', 'erreur');
+      });
+  }
+
+  /* ── Le démarrage ────────────────────────────────────────────────────── */
+
+  function auDepart() {
+    var parametres = new URLSearchParams(window.location.search);
+    if (parametres.get('paiement') === 'ok') {
+      dire('Le paiement est confirmé. Votre droit apparaît dans ' +
+           'l\'application dans quelques secondes.', 'reussi');
+    }
+
+    fetch('abonnement.json', { cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (json) {
+        config.serveur = (json.serveur || '').replace(/\/+$/, '');
+        config.formules = json.formules || [];
+        rendreFormules();
+
+        if (!config.serveur) {
+          el('zone-non-connecte').hidden = true;
+          el('intro-compte').hidden = false;
+          el('intro-compte').textContent =
+            'Le service d\'abonnement n\'est pas encore ouvert. Revenez ici ' +
+            'une fois la mise en service terminée — les formules, ci-dessus, ' +
+            'sont déjà les bonnes.';
+          return;
+        }
+
+        jeton = relireJeton();
+        if (!jeton) return;
+        api('/abonnement/etat', { jeton: jeton })
+          .then(function (r) {
+            if (!r.ok) {
+              garderJeton(null);
+              return;
+            }
+            afficherEtat(r.json.abonnement);
+          })
+          .catch(function () { garderJeton(null); });
+      })
+      .catch(function () {
+        el('formules').textContent =
+          'Les formules n\'ont pas pu être chargées. Rechargez la page.';
+      });
+  }
+
+  el('formulaire-creation').addEventListener('submit', creerCompte);
+  el('formulaire-connexion').addEventListener('submit', seConnecter);
+  el('bouton-deconnexion').addEventListener('click', seDeconnecter);
+  el('bouton-suppression').addEventListener('click', supprimerCompte);
+  el('bouton-portail').addEventListener('click', ouvrirPortail);
+
+  auDepart();
+})();
+</script>
+
+</body>
+</html>
