@@ -50,14 +50,16 @@ publié.
 
 ## Les fichiers d'installation
 
-Le dépôt porte aussi les fichiers d'installation pour Android TV, **à la
-racine**, sous des noms courts : sur une télévision, l'adresse se tape à la
-télécommande, et chaque caractère compte.
+Le dépôt porte aussi les fichiers d'installation, **à la racine**, sous des
+noms courts : sur une télévision, l'adresse se tape à la télécommande, et
+chaque caractère compte.
 
 | Fichier | Pour qui |
 |---|---|
 | [`arm64.apk`](arm64.apk) | Android TV, Fire TV 64 bits (`arm64-v8a`) |
 | [`armv7.apk`](armv7.apk) | Fire TV 32 bits (`armeabi-v7a`) |
+| [`macos.dmg`](macos.dmg) | Mac — hors App Store, signé et notarisé |
+| [`windows.msix`](windows.msix) | Windows — hors Microsoft Store, signé |
 
 Les sommes de contrôle sont dans [`SHA256SUMS`](SHA256SUMS).
 
