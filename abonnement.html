@@ -105,6 +105,8 @@ tablette, votre Mac et votre télévision, sans que vous ayez à le_activer
   <p id="etat-abonnement"></p>
 
   <p id="actions-abonnement">
+    <button type="button" id="bouton-verification" class="bouton secondaire">
+      Vérifier mon abonnement</button>
     <button type="button" id="bouton-portail" class="bouton secondaire">
       Gérer mon abonnement</button>
     <button type="button" id="bouton-deconnexion" class="bouton secondaire">
@@ -352,6 +354,50 @@ définitive du compte se fait au même endroit — elle efface l'adresse
     el('zone-suppression').hidden = true;
   }
 
+  /* ── Le droit ────────────────────────────────────────────────────────── */
+
+  // Relit le droit d'accès auprès du serveur.
+  //
+  // La page relit le droit **au chargement**, et **à la demande**. La
+  // deuxième fois compte : après un paiement, le serveur ne sait pas tout
+  // de suite que le droit est ouvert — la banque, puis le crochet du
+  // serveur, prennent quelques secondes — et l'utilisateur qui revient
+  // verrait « aucun abonnement actif » alors qu'il vient de payer.
+  //
+  // Un serveur qui ne répond pas **ne déconnecte pas** : il n'a rien dit
+  // sur la session, et un incident de cinq secondes ne doit pas faire
+  // croire à l'utilisateur que son compte a disparu. Seul un 401 — une
+  // session expirée — ferme la session.
+  //
+  // @param {boolean} annoncer Dire ce qu'on a trouvé, dans le message.
+  function relireLeDroit(annoncer) {
+    if (!jeton) return;
+    api('/abonnement/etat', { jeton: jeton })
+      .then(function (r) {
+        if (!r.ok) {
+          if (r.statut === 401 || r.statut === 404) {
+            garderJeton(null);
+            afficherDeconnexion();
+            dire('Votre session a expiré. Reconnectez-vous.', 'erreur');
+            return;
+          }
+          dire('Le serveur ne répond pas.', 'erreur');
+          return;
+        }
+        var abonnement = (r.json && r.json.abonnement) || {};
+        afficherEtat(abonnement);
+        if (annoncer) {
+          dire(abonnement.actif
+                ? 'Votre abonnement est actif.'
+                : 'Votre abonnement n\'est pas actif.',
+              abonnement.actif ? 'reussi' : null);
+        }
+      })
+      .catch(function () {
+        dire('Le serveur ne répond pas.', 'erreur');
+      });
+  }
+
   /* ── Les gestes ──────────────────────────────────────────────────────── */
 
   function payer(formuleId) {
@@ -516,15 +562,7 @@ définitive du compte se fait au même endroit — elle efface l'adresse
 
         jeton = relireJeton();
         if (!jeton) return;
-        api('/abonnement/etat', { jeton: jeton })
-          .then(function (r) {
-            if (!r.ok) {
-              garderJeton(null);
-              return;
-            }
-            afficherEtat(r.json.abonnement);
-          })
-          .catch(function () { garderJeton(null); });
+        relireLeDroit();
       })
       .catch(function () {
         el('formules').textContent =
@@ -537,6 +575,9 @@ définitive du compte se fait au même endroit — elle efface l'adresse
   el('bouton-deconnexion').addEventListener('click', seDeconnecter);
   el('bouton-suppression').addEventListener('click', supprimerCompte);
   el('bouton-portail').addEventListener('click', ouvrirPortail);
+  el('bouton-verification').addEventListener('click', function () {
+    relireLeDroit(true);
+  });
 
   auDepart();
 })();
