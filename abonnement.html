@@ -331,10 +331,16 @@ définitive du compte se fait au même endroit — elle efface l'adresse
         (abonnement.expireLe
           ? ', jusqu\'au ' + new Date(abonnement.expireLe).toLocaleDateString('fr-FR')
           : '') + '.';
-      el('zone-suppression').hidden = false;
     } else {
       etat.textContent = 'Aucun abonnement actif. Choisissez une formule ci-dessus.';
     }
+
+    // Le bouton de suppression est là **pour tout le monde**, que
+    // l'abonnement soit actif ou non : c'est un compte sans abonnement qui
+    // a le plus besoin de pouvoir le supprimer. Les magasins ouvrent cette
+    // page pour vérifier que la suppression existe — un compte sans
+    // abonnement doit donc trouver le bouton lui aussi.
+    el('zone-suppression').hidden = false;
   }
 
   function afficherDeconnexion() {
