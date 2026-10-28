@@ -162,7 +162,7 @@ définitive du compte se fait au même endroit — elle efface l'adresse
 </footer>
 
 <script>
-<!--
+/*
   La page d'abonnement — le seul script du site.
 
   Il fait deux choses : il montre les formules, et il parle au serveur
@@ -173,7 +173,15 @@ définitive du compte se fait au même endroit — elle efface l'adresse
   L'adresse du serveur n'est pas écrite dans le script : elle est lue dans
   `abonnement.json`, le même fichier que celui qui donne les prix. Il n'y a
   donc qu'une seule source de vérité.
--->
+
+  Ce commentaire est un vrai commentaire JavaScript. Il était écrit entre
+  `<!--` et `-->`, une vieille façon de cacher un script aux navigateurs
+  qui ne savent pas le lire — mais le navigateur ne le cachait pas : il le
+  passait au moteur JavaScript, qui n'y voyait qu'une ligne commentée, et
+  le reste du texte devenait du code. Le script était donc invalide, et la
+  page — connexion, abonnement, suppression du compte — ne fonctionnait
+  plus. Le contrôle `tools/verifier-javascript-site.sh` le dit désormais.
+*/
 (function () {
   'use strict';
 
@@ -442,6 +450,16 @@ définitive du compte se fait au même endroit — elle efface l'adresse
         }
         garderJeton(null);
         afficherDeconnexion();
+        // Le compte est supprimé dans tous les cas — mais si le serveur de
+        // synchronisation n'a pas répondu, le document d'échange est peut-être
+        // encore chez l'éditeur. On le dit, plutôt que de le taire : c'est
+        // une donnée, et l'utilisateur a le droit de le savoir.
+        if (r.json && r.json.synchronisationEffacee === false) {
+          dire('Le compte est supprimé, mais le document de synchronisation ' +
+               'n\'a pas pu être effacé chez l\'éditeur : signalez-le, il ' +
+               'sera effacé à la main.', 'erreur');
+          return;
+        }
         dire('Le compte est supprimé.', 'reussi');
       })
       .catch(function () {
